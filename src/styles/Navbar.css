@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000; /* Black background */
+  padding: 0 10px 0 30px;
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 90px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-right: 40px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #a4694e; /* Orange on hover */
+}
+
+.navbar .login-button {
+  background-color: #a4694e; /* Brownish color */
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #8b4513; /* Darker brown */
+}
+
+/* Toggle Button */
+.toggle-button {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 5px;
+  margin: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .toggle-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .close-button {
+    font-size: 40px;
+    color: #fff;
+  }
+
+  .hamburger {
+    font-size: 40px;
+    color: #fff;
+  }
+  .login-button {
+    margin-top: 10px;
+    width: 100px;
+  }
+}
