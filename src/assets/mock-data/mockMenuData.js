@@ -904,7 +904,7 @@ let lunchItems = [
     lastUpdateDate: "2020-02-03T14:10:30.000Z",
   },
   {
-    _id: "33",
+    _id: "34",
     itemName: "Vegan Cheese Wrap",
     category: "lunch",
     imageUrl: "./menu-item-images/vegan_cheese_wrap_resized.jpg",
@@ -931,7 +931,7 @@ let lunchItems = [
     lastUpdateDate: "2020-02-01T14:10:30.000Z",
   },
   {
-    _id: "34",
+    _id: "35",
     itemName: "Veggie Burger",
     category: "lunch",
     imageUrl: "./menu-item-images/veggie_burger_resized.jpg",
@@ -958,3 +958,6 @@ let lunchItems = [
     lastUpdateDate: "2015-02-13T14:10:30.000Z",
   },
 ]
+
+
+let allItems = coffeeItems.concat(smoothieItems,teaItems,saladItems,breakfastItems,lunchItems);
