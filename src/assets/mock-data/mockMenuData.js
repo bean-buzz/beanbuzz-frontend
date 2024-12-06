@@ -959,5 +959,5 @@ let lunchItems = [
   },
 ]
 
-
+// to avoid repetition, this allItems variable contains an array that combines all current menu item arrays.
 let allItems = coffeeItems.concat(smoothieItems,teaItems,saladItems,breakfastItems,lunchItems);
