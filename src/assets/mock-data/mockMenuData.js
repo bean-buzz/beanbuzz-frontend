@@ -1,6 +1,6 @@
 let coffeeItems = [
   {
-    _id: null,
+    _id: "1",
     itemName: "Cappuccino",
     category: "coffee",
     imageUrl: "./menu-item-images/cappuccino_resized.jpg",
@@ -27,7 +27,7 @@ let coffeeItems = [
     lastUpdateDate: "2024-05-18T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "2",
     itemName: "Iced Coffee",
     category: "coffee",
     imageUrl: "./menu-item-images/iced_cofee_resized.jpg",
@@ -53,7 +53,7 @@ let coffeeItems = [
     lastUpdateDate: "2024-05-19T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "3",
     itemName: "Flat White",
     category: "coffee",
     imageUrl: "./menu-item-images/flat_white_resized.jpg",
@@ -79,7 +79,7 @@ let coffeeItems = [
     lastUpdateDate: "2024-05-20T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "4",
     itemName: "Black Coffee",
     category: "coffee",
     imageUrl: "./menu-item-images/black_coffee_resized.jpg",
@@ -106,7 +106,7 @@ let coffeeItems = [
   },
 
   {
-    _id: null,
+    _id: "5",
     itemName: "Vanilla Soy Chai",
     category: "tea",
     imageUrl: "./menu-item-images/vanilla_soy_chai_resized.jpg",
@@ -136,7 +136,7 @@ let coffeeItems = [
 
 let smoothieItems = [
   {
-    _id: null,
+    _id: "6",
     itemName: "Melon Smoothie",
     category: "smoothie",
     imageUrl: "./menu-item-images/melon_smoothie_resized.jpg",
@@ -162,7 +162,7 @@ let smoothieItems = [
     lastUpdateDate: "2024-05-22T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "7",
     itemName: "Mango Smoothie",
     category: "smoothie",
     imageUrl: "./menu-item-images/mango_smoothie_resized.jpg",
@@ -188,7 +188,7 @@ let smoothieItems = [
     lastUpdateDate: "2024-06-20T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "8",
     itemName: "Strawberry Smoothie",
     category: "smoothie",
     imageUrl: "./menu-item-images/strawberry_smoothie_resized.jpg",
@@ -218,7 +218,7 @@ let smoothieItems = [
 
 let teaItems = [
   {
-    _id: null,
+    _id: "9",
     itemName: "Black Tea",
     category: "tea",
     imageUrl: "./menu-item-images/black_tea_resized",
@@ -246,7 +246,7 @@ let teaItems = [
   },
 
   {
-    _id: null,
+    _id: "10",
     itemName: "Iced Tea",
     category: "tea",
     imageUrl: "./menu-item-images/iced_tea_resized.jpg",
@@ -273,7 +273,7 @@ let teaItems = [
   },
 
   {
-    _id: null,
+    _id: "11",
     itemName: "Camomile Tea",
     category: "tea",
     imageUrl: "./menu-item-images/camomile_tea_resized.jpg",
@@ -300,7 +300,7 @@ let teaItems = [
   },
 
   {
-    _id: null,
+    _id: "12",
     itemName: "Filthy Chai",
     category: "tea",
     imageUrl: "./menu-item-images/filthy_chai_resized.jpg",
@@ -328,7 +328,7 @@ let teaItems = [
   },
 
   {
-    _id: null,
+    _id: "13",
     itemName: "Matcha",
     category: "tea",
     imageUrl: "./menu-item-images/matcha_resized.jpg",
@@ -357,7 +357,7 @@ let teaItems = [
 
 let breakfastItems = [
   {
-    _id: null,
+    _id: "14",
     itemName: "Basil and Avacado Toast",
     category: "breakfast",
     imageUrl: "./menu-item-images/basil_and_avacado_toast_resized.jpg",
@@ -384,7 +384,7 @@ let breakfastItems = [
     lastUpdateDate: "2021-02-20T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "15",
     itemName: "Croissant",
     category: "breakfast",
     imageUrl: "./menu-item-images/croissant_resized.jpg",
@@ -410,7 +410,7 @@ let breakfastItems = [
     lastUpdateDate: "2021-02-19T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "16",
     itemName: "Egg Omelette",
     category: "breakfast",
     imageUrl: "./menu-item-images/egg_omelette_resized.jpg",
@@ -436,7 +436,7 @@ let breakfastItems = [
     lastUpdateDate: "2021-02-18T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "17",
     itemName: "Eggs Benedict With Bacon",
     category: "breakfast",
     imageUrl: "./menu-item-images/eggs_benedict_with_bacon_resized.jpg",
@@ -463,7 +463,7 @@ let breakfastItems = [
     lastUpdateDate: "2021-02-15T14:10:30.000Z",
   },
   {
-    _id: null,
+    _id: "18",
     itemName: "Eggs Benedict With Salmon",
     category: "breakfast",
     imageUrl: "./menu-item-images/eggs_benedict_with_salmon_resized.jpg",
@@ -491,7 +491,7 @@ let breakfastItems = [
   },
 
   {
-    _id: null,
+    _id: "19",
     itemName: "Pancakes With Butterscotch",
     category: "breakfast",
     imageUrl: "./menu-item-images/pancakes_with_butterscotch_resized.jpg",
@@ -520,5 +520,115 @@ let breakfastItems = [
 ];
 
 let saladItems = [
-  
+  {
+    _id: "20",
+    itemName: "Greek Salad",
+    category: "salad",
+    imageUrl: "./menu-item-images/greek_salad_resized.jpg",
+    description:
+      "A fresh and vibrant mix of tomatoes, cucumbers, olives, and feta cheese, dressed in olive oil and herbs.",
+    isAvailable: true,
+    multipleSizes: true,
+    defaultPrice: null,
+    sizes: {
+      small: { price: 10.5 },
+      medium: { price: 12.5 },
+      large: { price: 14.5 },
+    },
+    dietaryInformation: {
+      isVegan: false,
+      isVegetarian: true,
+      isGlutenFree: true,
+      isDairyFree: false,
+      isHalal: true,
+      isKosher: true,
+      isBeefFree: true,
+    },
+    creationDate: "2021-01-19T14:10:30.000Z",
+    lastUpdateDate: "2021-01-19T14:10:30.000Z",
+  },
+
+  {
+    _id: "21",
+    itemName: "Tomato and Couscous Salad",
+    category: "salad",
+    imageUrl: "./menu-item-images/tomato_and_couscous_salad_resized.jpg",
+    description:
+      "A light salad featuring juicy tomatoes and fluffy couscous, tossed with fresh herbs and a tangy vinaigrette.",
+    isAvailable: true,
+    multipleSizes: true,
+    defaultPrice: null,
+    sizes: {
+      small: { price: 10.5 },
+      medium: { price: 12.5 },
+      large: { price: 14.5 },
+    },
+    dietaryInformation: {
+      isVegan: true,
+      isVegetarian: true,
+      isGlutenFree: true,
+      isDairyFree: true,
+      isHalal: true,
+      isKosher: true,
+      isBeefFree: true,
+    },
+    creationDate: "2021-02-17T14:10:30.000Z",
+    lastUpdateDate: "2021-02-17T14:10:30.000Z",
+  },
+  {
+    _id: "22",
+    itemName: "Mozarella and Basil Salad",
+    category: "salad",
+    imageUrl: "./menu-item-images/basil_and_tomato_salad_resized.jpg",
+    description:
+      "A refreshing salad featuring ripe tomatoes and fragrant basil leaves, drizzled with olive oil and a hint of balsamic vinegar.",
+    isAvailable: true,
+    multipleSizes: true,
+    defaultPrice: null,
+    sizes: {
+      small: { price: 10.5 },
+      medium: { price: 12.5 },
+      large: { price: 14.5 },
+    },
+    dietaryInformation: {
+      isVegan: true,
+      isVegetarian: true,
+      isGlutenFree: true,
+      isDairyFree: true,
+      isHalal: true,
+      isKosher: true,
+      isBeefFree: true,
+    },
+    creationDate: "2021-02-16T14:10:30.000Z",
+    lastUpdateDate: "2021-02-16T14:10:30.000Z",
+  },
+  {
+    _id: "23",
+    itemName: "Mozarella and Basil Salad",
+    category: "salad",
+    imageUrl: "./menu-item-images/basil_and_tomato_salad_resized.jpg",
+    description:
+      "A refreshing salad featuring ripe tomatoes and fragrant basil leaves, drizzled with olive oil and a hint of balsamic vinegar.",
+    isAvailable: true,
+    multipleSizes: true,
+    defaultPrice: null,
+    sizes: {
+      small: { price: 10.5 },
+      medium: { price: 12.5 },
+      large: { price: 14.5 },
+    },
+    dietaryInformation: {
+      isVegan: true,
+      isVegetarian: true,
+      isGlutenFree: true,
+      isDairyFree: true,
+      isHalal: true,
+      isKosher: true,
+      isBeefFree: true,
+    },
+    creationDate: "2021-02-15T14:10:30.000Z",
+    lastUpdateDate: "2021-02-15T14:10:30.000Z",
+  },
 ];
+
+let lunchItems = []
