@@ -101,8 +101,8 @@ let coffeeItems = [
       isKosher: true,
       isBeefFree: true,
     },
-    creationDate: null,
-    lastUpdateDate: null,
+    creationDate: "2012-05-20T14:10:30.000Z",
+    lastUpdateDate: "2012-05-20T14:10:30.000Z",
   },
 
   {
@@ -111,7 +111,7 @@ let coffeeItems = [
     category: "tea",
     imageUrl: "./menu-item-images/vanilla_soy_chai_resized.jpg",
     description:
-      "A delightful chai latte made with soy milk and a hint of vanilla.",
+      "A delightful chai made with soy milk and a hint of vanilla.",
     isAvailable: true,
     multipleSizes: true,
     defaultPrice: null,
