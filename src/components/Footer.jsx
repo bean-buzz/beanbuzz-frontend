@@ -9,9 +9,10 @@ import EmailIcon from "../assets/images/email.png";
 import PhoneIcon from "../assets/images/phone.png";
 import "../styles/Footer.css";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="footer">
+      {/* Logo Section */}
       <div className="footer-column logo-section">
         <img src={Logo} alt="Bean Buzz Logo" className="footer-logo" />
         <div className="social-icons">
@@ -38,75 +39,66 @@ const Footer = () => {
           </a>
         </div>
       </div>
+
+      {/* Opening Hours Section */}
       <div className="footer-column opening-hours">
         <h4>Opening Hours</h4>
         <ul>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            Monday: 8.00am - 6.00pm
-          </li>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            Tuesday: 8.00am - 6.00pm
-          </li>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            Wednesday: 8.00am - 6.00pm
-          </li>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            Thursday: 8.00am - 9.00pm
-          </li>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            Friday/Saturday: 8.00am - Late
-          </li>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            Sunday: 8.00am - 10.00pm
-          </li>
+          {[
+            "Monday: 8.00am - 6.00pm",
+            "Tuesday: 8.00am - 6.00pm",
+            "Wednesday: 8.00am - 6.00pm",
+            "Thursday: 8.00am - 9.00pm",
+            "Friday/Saturday: 8.00am - Late",
+            "Sunday: 8.00am - 10.00pm",
+          ].map((item, index) => (
+            <li key={index}>
+              <img src={ListIcon} alt="icon" className="list-icon" /> {item}
+            </li>
+          ))}
         </ul>
       </div>
+
+      {/* Pages Section */}
       <div className="footer-column pages">
         <h4>Pages</h4>
         <ul>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            <a href="/menu">Our Menu</a>
-          </li>
-          <li>
-            <img src={ListIcon} alt="icon" className="list-icon" />
-            <a href="/contact">Contact Us</a>
-          </li>
+          {[
+            { name: "Home", link: "/" },
+            { name: "Our Menu", link: "/menu" },
+            { name: "Contact Us", link: "/contact" },
+          ].map((page, index) => (
+            <li key={index}>
+              <img src={ListIcon} alt="icon" className="list-icon" />
+              <a href={page.link}>{page.name}</a>
+            </li>
+          ))}
         </ul>
       </div>
+
+      {/* Contact Section */}
       <div className="footer-column contact">
         <h4>Contact</h4>
         <p>
-          <img src={LocationIcon} alt="icon" className="list-icon" />
-          No 236 Queens Road, Silvan VIC, Australia, 1234
+          <img src={LocationIcon} alt="icon" className="list-icon" /> No 236
+          Queens Road, Silvan VIC, Australia, 1234
         </p>
         <p>
-          <img src={PhoneIcon} alt="icon" className="list-icon" />
-          Phone: (03) 739847267
+          <img src={PhoneIcon} alt="icon" className="list-icon" /> Phone: (03)
+          739847267
         </p>
         <p>
-          <img src={EmailIcon} alt="icon" className="list-icon" />
-          Email:{" "}
+          <img src={EmailIcon} alt="icon" className="list-icon" /> Email:{" "}
           <a href="mailto:sys.beanbuzz@gmail.com">sys.beanbuzz@gmail.com</a>
         </p>
       </div>
+
+      {/* Footer Bottom Section */}
       <div className="footer-bottom">
         <p>
-          Copyright 2024 © All Rights Reserved. Powered & Designed by BeenBuzz
+          Copyright 2024 © All Rights Reserved. Powered & Designed by BeanBuzz
         </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
