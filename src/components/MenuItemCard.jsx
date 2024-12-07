@@ -1,8 +1,11 @@
 import "../styles/MenuItemCard.css"
+
+
 export default function MenuItemCard({menuItemObj}) {
 
     return(
         <div className="menu-item-card">
+            <img src={menuItemObj.imageUrl}></img>
             <h4>{menuItemObj.itemName}</h4>
             <p>{menuItemObj.description}</p>
             {menuItemObj.dietaryInformation.isVegetarian? <h6 className="vegetarian-tag dietary-tag">Vegetarian</h6>:null}
