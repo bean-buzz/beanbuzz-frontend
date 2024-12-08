@@ -1,3 +1,473 @@
-.main {
-    height: 150vh;
+body {
+  background-color: #DCCBC6;
+  margin: 0; /* Remove default margin */
+}
+
+/* Home Section */
+.home-section {
+  position: relative;
+  text-align: center;
+}
+
+.delivery-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px; /* Top and bottom margin */
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  /* Align button to the left */
+  margin-left: 10px; /* Ensure it starts at the left edge */
+  position: relative; /* Allows for manual adjustments if necessary */
+  left: 20px; /* Explicitly position the button on the left side */
+}
+
+.delivery-button:hover {
+  background-color: #a4694e;
+}
+
+.vehicle-icon {
+  width: 30px;
+  height: 20px;
+  margin-right: 8px; /* Space between the icon and text */
+  padding: 0 5px 8px;
+
+}
+
+/* Slider */
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  height: 600px; /* Adjust as needed */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.homepage-slider-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover; /* Ensures the image scales nicely */
+  transition: transform 0.5s ease-in-out; /* Smooth slide effect */
+  transition: filter 0.3s ease; /* Smooth blur effect */
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
+}
+
+.slider-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Slider Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #a4694e;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ffffff;
+}
+
+.dot:hover {
+  background-color: black;
+}
+
+/* Blur effect when form is shown */
+.blur-background .homepage-slider-image {
+  filter: blur(3px);
+}
+
+/* Popup form container */
+.popup-form {
+  position: fixed;
+  top: 20%;
+  left: 30px;
+  transform: none;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Form content styles */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+}
+
+form input {
+  width: 95%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button.close-button {
+  background-color: #ff5e5e;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+button.close-button:hover {
+  background-color: #ff3b3b;
+}
+
+button.submit-button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Disable interaction with blurred background */
+.blur-background > *:not(.popup-form) {
+  pointer-events: none;
+}
+
+/* Tablet screen adjustments */
+@media (max-width: 768px) {
+  .popup-form {
+    left: 30px; /* Add padding from the left */
+    top: 20%;
+  }
+
+  .slider-container{
+    height: 500px;
+  }
+
+  .homepage-slider-image {
+    height: 500px;
+  }
+
+  .dot {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* Mobile screen adjustments */
+@media (max-width: 480px) {
+  .popup-form {
+    left: 20px; /* Add smaller left margin for mobiles */
+    width: 90%; /* Take most of the screen width */
+    top: 18%;
+  }
+  .delivery-button {
+    margin-left: 0;
+  }
+}
+
+
+/* Follow-Us Section Styling */
+.follow-us-section {
+  text-align: center;
+  background-color: #DCCBC6; /* White background */
+  padding: 30px;
+  margin: 10px 0; /* Top and bottom margin */
+}
+
+/* Section Heading (h2) */
+.section-heading {
+  font-size: 30px;
+  font-weight: bold;
+  color: #2c2b2b; /* Dark gray text */
+  margin-bottom: 1px; /* 5px gap below heading */
+  line-height: .1;
+}
+
+/* Section Description (p) */
+.section-description {
+  font-size: 20px;
+  color: #666666; /* Medium gray text */
+  margin-bottom: 25px;
+  line-height: 1;
+}
+
+/* Follow Button Styling */
+.follow-button {
+  display: inline-flex; /* Flexbox for aligning image and text */
+  align-items: center; /* Vertically center image and text */
+  justify-content: center; /* Horizontally center content */
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  background-color: #ffffff; /* Blue button */
+  padding: 5px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  gap: 3px; /* Space between text and image */
+}
+
+/* Follow Button Hover Effect */
+.follow-button:hover {
+  background-color: #000000; /* Darker blue on hover */
+  color: #ffffff;
+}
+
+/* Vehicle Icon in Button */
+.follow-icon {
+  width: 25px; /* Adjust width as needed */
+  height: 25px; /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 22px;
+  }
+
+  .section-description {
+    font-size: 18px;
+  }
+}
+
+
+/* About-Us Section Styling */
+/* About Us Section */
+.about-us-section {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Main Image Container */
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  overflow: hidden;
+  
+}
+
+/* Add shadowed background using a pseudo-element */
+.main-image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(28, 27, 27, 0.8); /* Semi-transparent overlay */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
+  z-index: 1; /* Ensure overlay is above the image */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Main Image with Blur Effect */
+.main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Send the image to the background */
+}
+
+/* Main Heading */
+.main-heading {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  color: white;
+  font-size: 36px;
+  text-align: center;
+  margin: 0;
+  padding: 10px 20px; /* Add padding for spacing */
+  border-radius: 8px; /* Rounded corners for better design */
+}
+
+/* Image Text Container */
+.image-text-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px; /* Space between small image and overlay text */
+  z-index: 5;
+  padding: 30px; /* Spacing within the container */
+  width: 90%; /* Adjust container width as needed */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Small Image Container */
+.small-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.small-image {
+  width: 500px;
+  height: 300px;
+  margin-top: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Overlay Text */
+.overlay-text {
+  flex: 2;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+/* Cafe Info Inside Overlay Text */
+.cafe-info {
+  display: flex;
+  justify-content: space-between; /* Left and right alignment */
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cafe-info h2 {
+  margin: 0;
+}
+
+/* Tab Screen Adjustments (768px and larger) */
+@media (max-width: 1024px) {
+  .main-heading {
+    font-size: 25px;
+    padding: 0;
+  }
+
+  .small-image {
+    width: 300px;
+    height: 200px;
+    margin-top: 30px;
+  }
+
+  .overlay-text {
+    font-size: 14px;
+    margin-top: 100px;
+  }
+
+  .image-text-container {
+    gap: 30px; /* Reduced gap for better alignment */
+  }
+
+  .cafe-info {
+    font-size: 12px;
+  }
+}
+
+/* Mobile Screen Adjustments (767px and smaller) */
+@media (max-width: 767px) {
+  .main-heading {
+    font-size: 25px;
+  }
+
+  .small-image {
+    display: none; /* Hide small image on mobile */
+  }
+
+  .image-text-container {
+    flex-direction: column; /* Stack overlay-text vertically */
+    padding: 0;
+  }
+
+  .overlay-text {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .overlay-text {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .cafe-info {
+    font-size: 12px;
+  }
 }
