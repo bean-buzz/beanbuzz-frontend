@@ -7,6 +7,7 @@ import ListIcon from "../assets/images/footer/listicon.png";
 import LocationIcon from "../assets/images/footer/location.png";
 import EmailIcon from "../assets/images/footer/email.png";
 import PhoneIcon from "../assets/images/footer/phone.png";
+
 import "../styles/Footer.css";
 
 export default function Footer() {
