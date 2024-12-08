@@ -38,7 +38,7 @@ export default function Navbar() {
         >
           Contact Us
         </NavLink>
-        <Link to="/login" className="login-button">
+        <Link to="/auth" className="login-button">
           LOGIN
         </Link>
       </div>
