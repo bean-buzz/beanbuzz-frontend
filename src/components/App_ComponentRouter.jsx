@@ -3,10 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage.jsx";
 import OurMenuPage from "../pages/OurMenuPage.jsx";
 import ContactPage from "../pages/ContactPage.jsx";
-import UserAuthenticationPage from "../pages/UserAuthenticationPage.jsx";
-import ResetPasswordPage from "../pages/ResetPasswordPage.jsx";
-import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx";
-
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 
@@ -21,12 +17,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<OurMenuPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/auth" element={<UserAuthenticationPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route
-            path="/reset-password/:token"
-            element={<ResetPasswordPage />}
-          />
         </Routes>
 
         {/* This is our custom footer! */}
