@@ -1,0 +1,33 @@
+.dietary-tag {
+    
+    padding: 0.3rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    display: inline;
+}
+
+.vegetarian-tag {
+    background-color: lightgreen;
+}
+
+.gluten-free-tag {
+    background-color: gold;
+}
+
+.halal-tag {
+    background-color: rgb(130, 255, 226);
+}
+.vegan-tag {
+ background-color: green;
+}
+
+.dairy-free-tag {
+background-color: rgb(255, 227, 209);
+}
+
+.kosher-tag {
+ background-color: coral;
+}
+.beef-free-tag {
+ background-color: plum;
+}
