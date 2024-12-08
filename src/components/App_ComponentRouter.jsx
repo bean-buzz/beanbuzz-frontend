@@ -40,6 +40,9 @@ function App() {
             path="/reset-password/:token"
             element={<ResetPasswordPage />}
           />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<OurMenuPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
 
         {/* This is our custom footer! */}

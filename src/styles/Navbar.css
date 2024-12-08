@@ -1,14 +1,16 @@
 /* General Styles */
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #000; /* Black background */
-  padding: 0 10px 0 30px;
+  padding: 0 30px;
   color: #fff;
 }
 
@@ -27,24 +29,31 @@ body {
 }
 
 .nav-links a {
-  margin-right: 40px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  text-decoration: none;
+  text-decoration: none; /* Ensure no underline for links */
+  color: #fff; /* Default link color */
 }
 
 .nav-links a:hover {
   color: #a4694e; /* Orange on hover */
 }
 
-.navbar .login-button {
+.nav-links h3 {
+  margin-right: 40px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-links h3:hover {
+  color: #a4694e; /* Orange on hover */
+}
+
+.login-button {
   background-color: #a4694e; /* Brownish color */
-  color: white;
+  color: #fff;
   border: none;
   padding: 8px 20px;
   text-decoration: none;
-  border-radius: 3px;
+  border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s;
 }
@@ -55,20 +64,56 @@ body {
 
 /* Toggle Button */
 .toggle-button {
-  display: none;
+  display: none; /* Hide by default */
+  position: absolute;
   font-size: 30px;
   cursor: pointer;
   color: #fff;
+  z-index: 1100; /* Place the toggle button above the menu */
+  right: 20px;
 }
 
 .mobile-menu {
   display: none;
 }
 
-.mobile-menu a {
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px; /* Space for the close button */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.mobile-menu h3 {
   display: block;
   padding: 5px;
-  margin: 10px;
+  margin: 15px 0; /* Add some spacing between menu items */
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mobile-menu h3:hover {
+  color: #a4694e; /* Orange on hover */
+}
+
+/* Close Button */
+.close-button {
+  position: absolute; /* Position relative to mobile menu */
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  top: 10px; /* Position close to the top of the menu */
+  right: 20px; /* Align to the right */
+  z-index: 1100; /* Ensure it's above all other elements */
 }
 
 /* Responsive Design */
@@ -78,32 +123,15 @@ body {
   }
 
   .toggle-button {
-    display: block;
+    display: block; /* Show toggle button in mobile view */
   }
 
   .mobile-menu {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
+    display: flex; /* Show menu in mobile view */
   }
 
-  .close-button {
-    font-size: 40px;
-    color: #fff;
-  }
-
-  .hamburger {
-    font-size: 40px;
-    color: #fff;
-  }
   .login-button {
     margin-top: 10px;
-    width: 100px;
+    margin-bottom: 30px;
   }
 }

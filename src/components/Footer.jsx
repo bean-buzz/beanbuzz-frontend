@@ -1,13 +1,12 @@
 import React from "react";
 import Logo from "../assets/images/Logo.png";
-import FacebookIcon from "../assets/images/facebook.png";
-import InstagramIcon from "../assets/images/instagram.png";
-import TwitterIcon from "../assets/images/twitter.png";
-import ListIcon from "../assets/images/listicon.png";
-import LocationIcon from "../assets/images/location.png";
-import EmailIcon from "../assets/images/email.png";
-import PhoneIcon from "../assets/images/phone.png";
-
+import FacebookIcon from "../assets/images/footer/facebook.png";
+import InstagramIcon from "../assets/images/footer/instagram.png";
+import TwitterIcon from "../assets/images/footer/twitter.png";
+import ListIcon from "../assets/images/footer/listicon.png";
+import LocationIcon from "../assets/images/footer/location.png";
+import EmailIcon from "../assets/images/footer/email.png";
+import PhoneIcon from "../assets/images/footer/phone.png";
 import "../styles/Footer.css";
 
 export default function Footer() {
