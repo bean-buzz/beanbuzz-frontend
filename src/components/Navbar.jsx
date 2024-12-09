@@ -24,21 +24,21 @@ export default function Navbar() {
           to="/"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
-          Home
+          <h3>Home</h3>
         </NavLink>
         <NavLink
           to="/menu"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
-          Our Menu
+          <h3>Our Menu</h3>
         </NavLink>
         <NavLink
           to="/contact"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
-          Contact Us
+          <h3>Contact Us</h3>
         </NavLink>
-        <Link to="/login" className="login-button">
+        <Link to="/auth" className="login-button">
           LOGIN
         </Link>
       </div>

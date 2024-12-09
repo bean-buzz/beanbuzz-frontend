@@ -1,6 +1,29 @@
+/* Default theme (light mode) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --input-bg-color: #f6f1ef;
+  --input-text-color: #000000;
+  --button-bg-color: #241b17;
+  --button-text-color: #f6f1ef;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --input-bg-color: #e8d4c4;
+    --input-text-color: #000000;
+    --button-bg-color: #251b0f;
+    --button-text-color: #e8d4c4;
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

@@ -1,0 +1,45 @@
+.user-auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../assets/images/login-bg.png");
+  background-size: cover;
+
+  min-height: 100vh;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 10px;
+}
+
+.form-input {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  border: 1px solid var(--text-color);
+}
+
+.submit-btn,
+.switch-btn {
+  margin: 10px;
+  padding: 5px;
+  font-size: 14px;
+
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.info-text {
+  margin: 0;
+  margin-top: 20px;
+}
