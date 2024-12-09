@@ -1,9 +1,37 @@
+
+
+.menu-item-card img {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 40%;
+    min-height: 40%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;;
+}
+
+
+.menu-item-card {
+    max-width: 400px;
+    min-width: 300px;
+    margin: 3rem;
+    border-radius: 15px;
+    background-color: beige;
+    padding-bottom: 2rem;
+}
+
+.dietary-tag-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
 .dietary-tag {
     
     padding: 0.3rem;
     margin: 0.5rem;
     border-radius: 5px;
-    display: inline;
 }
 
 .vegetarian-tag {

@@ -26,7 +26,6 @@ export default function Menu() {
 
   return (
     <div className="menu">
-        <h1>hello</h1>
       {menuItems.map((item)=>{
         return <MenuItemCard key={item._id} menuItemObj={item}>hi</MenuItemCard>
       })}
