@@ -3,8 +3,8 @@
 .menu-item-card img {
     max-width: 100%;
     min-width: 100%;
-    max-height: 40%;
-    min-height: 40%;
+    max-height: 225px;
+    min-height: 225px;
     object-fit: cover;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;;
@@ -12,13 +12,18 @@
 
 
 .menu-item-card {
-    max-width: 400px;
-    min-width: 300px;
+    max-width: 350px;
+    min-width: 350px;
     margin: 3rem;
     border-radius: 15px;
     background-color: beige;
     padding-bottom: 2rem;
 }
+
+.menu-item-card p {
+    margin: 1em;
+}
+
 
 .dietary-tag-container{
     display: flex;

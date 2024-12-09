@@ -1,0 +1,16 @@
+.menu-filter button {
+    background-color: white;
+    color: #8b4513;
+    border-radius: 50px;
+    padding: 1rem;
+    margin: 0.5rem;
+    min-width: 100px;
+    border: solid;
+    border-width: 2px;
+}
+
+.menu-filter button:hover {
+    background-color: #8b4513;
+    color: white;
+    transition: 0.1s;
+}
