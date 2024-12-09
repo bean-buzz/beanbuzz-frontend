@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import MenuItemCard from "./MenuItemCard";
-import "../styles/Menu.css"
+import "../styles/Menu.css";
 
 export default function Menu() {
-
   const [menuItems, setMenuItems] = useState([]);
 
-// This allows the menu component to fetch menu-data when the component first loads. This initial fetch may be 'All Items' later
+  // This allows the menu component to fetch menu-data when the component first loads. This initial fetch may be 'All Items' later
   useEffect(() => {
     async function fetchMenuItemData() {
       try {
@@ -25,10 +24,15 @@ export default function Menu() {
   console.log(menuItems);
 
   return (
-    <div className="menu">
-      {menuItems.map((item)=>{
-        return <MenuItemCard key={item._id} menuItemObj={item}>hi</MenuItemCard>
-      })}
+    <div>
+      <div className="menu-card-container">
+        {menuItems.map((item) => {
+          return (
+            <MenuItemCard key={item._id} menuItemObj={item}>
+            </MenuItemCard>
+          );
+        })}
+      </div>
     </div>
   );
 }
