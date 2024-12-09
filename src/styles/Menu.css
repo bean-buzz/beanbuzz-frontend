@@ -1,3 +1,7 @@
-.menu {
-    margin: 5rem;
+.menu-card-container{
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
