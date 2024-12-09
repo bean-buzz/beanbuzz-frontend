@@ -28,8 +28,7 @@ export default function Menu() {
       <div className="menu-card-container">
         {menuItems.map((item) => {
           return (
-            <MenuItemCard key={item._id} menuItemObj={item}>
-            </MenuItemCard>
+            <MenuItemCard key={item._id} menuItemObj={item}></MenuItemCard>
           );
         })}
       </div>
