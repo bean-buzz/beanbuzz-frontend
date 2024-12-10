@@ -64,3 +64,9 @@ background-color: rgb(255, 227, 209);
 .beef-free-tag {
  background-color: plum;
 }
+
+.unavailable-message{
+    color: rgb(255, 79, 60);
+    font-size: 0.9rem;
+
+}
