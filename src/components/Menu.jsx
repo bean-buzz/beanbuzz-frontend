@@ -6,69 +6,13 @@ import "../styles/Menu.css";
 export default function Menu() {
   const [menuItems, setMenuItems] = useState([]);
 
-  async function handleLunchFilter() {
+  // Each button in the menu filter calls this function to update the menu by category
+  async function handleCategoryFilter(category) {
     try {
-      const response = await fetch("http://localhost:3000/lunchItems");
-      const LunchData = await response.json();
-      if (LunchData) {
-        setMenuItems(LunchData);
-      }
-    } catch (error) {
-      console.error("Error fetching menu items", error);
-    }
-  }
-  async function handleBreakfastFilter() {
-    try {
-      const response = await fetch("http://localhost:3000/breakfastItems");
-      const breakfastData = await response.json();
-      if (breakfastData) {
-        setMenuItems(breakfastData);
-      }
-    } catch (error) {
-      console.error("Error fetching menu items", error);
-    }
-  }
-  async function handleSaladFilter() {
-    try {
-      const response = await fetch("http://localhost:3000/saladItems");
-      const saladData = await response.json();
-      if (saladData) {
-        setMenuItems(saladData);
-      }
-    } catch (error) {
-      console.error("Error fetching menu items", error);
-    }
-  }
-
-  async function handleCoffeeFilter() {
-    try {
-      const response = await fetch("http://localhost:3000/coffeeItems");
-      const breakfastData = await response.json();
-      if (breakfastData) {
-        setMenuItems(breakfastData);
-      }
-    } catch (error) {
-      console.error("Error fetching menu items", error);
-    }
-  }
-
-  async function handleTeaFilter() {
-    try {
-      const response = await fetch("http://localhost:3000/teaItems");
-      const teaData = await response.json();
-      if (teaData) {
-        setMenuItems(teaData);
-      }
-    } catch (error) {
-      console.error("Error fetching menu items", error);
-    }
-  }
-  async function handleSmoothieFilter() {
-    try {
-      const response = await fetch("http://localhost:3000/smoothieItems");
-      const teaData = await response.json();
-      if (teaData) {
-        setMenuItems(teaData);
+      const response = await fetch(`http://localhost:3000/${category}`);
+      const Data = await response.json();
+      if (Data) {
+        setMenuItems(Data);
       }
     } catch (error) {
       console.error("Error fetching menu items", error);
@@ -96,12 +40,7 @@ export default function Menu() {
   return (
     <div>
       <MenuFilter
-        handleLunchFilter={handleLunchFilter}
-        handleBreakfastFilter={handleBreakfastFilter}
-        handleSaladFilter={handleSaladFilter}
-        handleCoffeeFilter={handleCoffeeFilter}
-        handleTeaFilter={handleTeaFilter}
-        handleSmoothieFilter={handleSmoothieFilter}
+        handleCategoryFilter={handleCategoryFilter}
       ></MenuFilter>
       <div className="menu-card-container">
         {menuItems.map((item) => {
