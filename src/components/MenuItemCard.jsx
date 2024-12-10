@@ -17,7 +17,7 @@ export default function MenuItemCard({menuItemObj}) {
             {menuItemObj.dietaryInformation.isBeefFree? <h6 className="dietary-tag beef-free-tag">Beef Free</h6> : null}
             </div>
             {menuItemObj.defaultPrice?<p>${menuItemObj.defaultPrice}</p>: <p>Small ${menuItemObj.sizes.small.price} Medium ${menuItemObj.sizes.small.price} Large ${menuItemObj.sizes.small.price} </p>}
-            <button>Order</button>
+            {menuItemObj.isAvailable? <button>Order</button>: <h5 className="unavailable-message">Currently Unavailable</h5>}
 
         </div>
     )
