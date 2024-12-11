@@ -2,21 +2,16 @@ import "../styles/MenuFilter.css"
 
 import React from "react";
 export default function MenuFilter({
-  handleLunchFilter,
-  handleBreakfastFilter,
-  handleSaladFilter,
-  handleCoffeeFilter,
-  handleTeaFilter,
-  handleSmoothieFilter
+handleCategoryFilter
 }) {
   return (
     <div className="menu-filter">
-      <button onClick={handleLunchFilter}>Lunch</button>
-      <button onClick={handleBreakfastFilter}>Breakfast</button>
-      <button onClick={handleSaladFilter}>Salads</button>
-      <button onClick={handleCoffeeFilter}>Coffee</button>
-      <button onClick={handleTeaFilter}>Tea</button>
-      <button onClick={handleSmoothieFilter}>Smoothies </button>
+      <button onClick={() => handleCategoryFilter("lunchItems")}>Lunch</button>
+      <button onClick={() => handleCategoryFilter("breakfastItems")}>Breakfast</button>
+      <button onClick={() => handleCategoryFilter("saladItems")}>Salads</button>
+      <button onClick={() => handleCategoryFilter("coffeeItems")}>Coffee</button>
+      <button onClick={() => handleCategoryFilter("teaItems")}>Tea</button>
+      <button onClick={() => handleCategoryFilter("smoothieItems")}>Smoothies</button>
     </div>
   );
 }
