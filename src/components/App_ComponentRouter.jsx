@@ -7,27 +7,21 @@ import UserAuthenticationPage from "../pages/UserAuthenticationPage.jsx";
 import ResetPasswordPage from "../pages/ResetPasswordPage.jsx";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx";
 
-import PublicLayout from "./layouts/PublicLayout.jsx";
 import ProtectedLayout from "../components/ProtectedLayout.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 
+import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
-
-// Import admin-specific components
-import AdminLayout from "./layouts/AdminLayout.jsx";
-import AdminDashboard from "../pages/AdminDashboard.jsx";
-import MenuItems from "../pages/MenuItems.jsx";
-import Orders from "../pages/Orders.jsx";
-import Payments from "../pages/Payments.jsx";
-import Reviews from "../pages/Reviews.jsx";
-import UserProfile from "../pages/UserProfile.jsx";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        {/* This is our custom navbar! */}
+        <Navbar />
+
         <Routes>
-          {/* Public Routes */}
+          {/* All routes within here are protected by a jwt check */}
           <Route
             path="/"
             element={
@@ -36,106 +30,19 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route
-              path="/"
-              element={
-                <PublicLayout>
-                  <HomePage />
-                </PublicLayout>
-              }
-            />
-            <Route
-              path="/menu"
-              element={
-                <PublicLayout>
-                  <OurMenuPage />
-                </PublicLayout>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <PublicLayout>
-                  <ContactPage />
-                </PublicLayout>
-              }
-            />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/menu" element={<OurMenuPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Route>
-          <Route
-            path="/auth"
-            element={
-              <PublicLayout>
-                <UserAuthenticationPage />
-              </PublicLayout>
-            }
-          />
-          <Route
-            path="/forgot-password"
-            element={
-              <PublicLayout>
-                <ForgotPasswordPage />
-              </PublicLayout>
-            }
-          />
+          <Route path="/auth" element={<UserAuthenticationPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route
             path="/reset-password/:token"
-            element={
-              <PublicLayout>
-                <ResetPasswordPage />
-              </PublicLayout>
-            }
+            element={<ResetPasswordPage />}
           />
-
-          {/* Admin Routes */}
-          <Route
-            path="/admin"
-            element={
-              <AdminLayout>
-                <AdminDashboard />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/items"
-            element={
-              <AdminLayout>
-                <MenuItems />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/orders"
-            element={
-              <AdminLayout>
-                <Orders />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/payments"
-            element={
-              <AdminLayout>
-                <Payments />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/reviews"
-            element={
-              <AdminLayout>
-                <Reviews />
-              </AdminLayout>
-            }
-          />
-
-          <Route
-            path="/user"
-            element={
-              <PublicLayout>
-                <UserProfile />
-              </PublicLayout>
-            }
-          />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<OurMenuPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
 
         {/* This is our custom footer! */}
