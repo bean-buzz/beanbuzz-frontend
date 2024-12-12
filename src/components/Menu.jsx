@@ -9,7 +9,9 @@ export default function Menu() {
   // Each button in the menu filter calls this function to update the menu by category
   async function handleCategoryFilter(category) {
     try {
-      const response = await fetch(`http://localhost:3000/${category}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_DATABASE_URL}/menu/${category}`
+      );
       const Data = await response.json();
       if (Data) {
         setMenuItems(Data);
@@ -23,7 +25,9 @@ export default function Menu() {
   useEffect(() => {
     async function fetchMenuItemData() {
       try {
-        const response = await fetch("http://localhost:3000/coffeeItems");
+        const response = await fetch(
+          `${import.meta.env.VITE_DATABASE_URL}/menu/coffee`
+        );
         const data = await response.json();
         if (data) {
           setMenuItems(data);
@@ -39,9 +43,7 @@ export default function Menu() {
 
   return (
     <div>
-      <MenuFilter
-        handleCategoryFilter={handleCategoryFilter}
-      ></MenuFilter>
+      <MenuFilter handleCategoryFilter={handleCategoryFilter}></MenuFilter>
       <div className="menu-card-container">
         {menuItems.map((item) => {
           return (
