@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 export default function ProtectedRoute({ children }) {
   const navigate = useNavigate();
@@ -8,8 +9,33 @@ export default function ProtectedRoute({ children }) {
   const token = localStorage.getItem("jwt");
 
   // Fetch protected data
+  // Retrieve the JWT token from storage
   const fetchProtectedData = async () => {
     const token = localStorage.getItem("jwt");
+
+    function getRoleFromToken(token) {
+      if (!token) {
+        throw new Error("Token is required");
+      }
+
+      try {
+        // Decode the JWT token
+        const decodedToken = jwtDecode(token);
+
+        // Assuming the role is in a `role` field in the payload
+        const role = decodedToken.role;
+
+        // Return the role or null if not found
+        return role || null;
+      } catch (error) {
+        console.error("Failed to decode token:", error);
+        return null;
+      }
+    }
+
+    const userRole = getRoleFromToken(token);
+
+    console.log("User Role:", userRole);
 
     if (!token) {
       setError("No token found. Please sign in.");
@@ -31,6 +57,7 @@ export default function ProtectedRoute({ children }) {
       if (response.ok) {
         const data = await response.json();
         console.log("Protected data:", data.message);
+        console.log(data);
       } else {
         setError("Token is invalid or expired. Please sign in again.");
         localStorage.removeItem("jwt");
