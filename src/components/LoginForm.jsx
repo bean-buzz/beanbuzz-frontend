@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { jwtDecode } from "jwt-decode"; // Import JWT decode library
 
 import "../styles/LoginForm.css";
 
@@ -44,18 +43,8 @@ export default function LoginForm({ toggleAuthMode }) {
         // Store JWT token in localStorage
         localStorage.setItem("jwt", data.jwt);
 
-        // Decode the JWT token to get the role
-        const decodedToken = jwtDecode(data.jwt);
-        const userRole = decodedToken.role;
-
-        // Navigate based on the user role
-        if (userRole === "admin") {
-          navigate("/admin"); // Redirect to admin page
-        } else if (userRole === "user") {
-          navigate("/user"); // Redirect to user page
-        } else {
-          setStatus("Unknown role. Please contact support.");
-        }
+        // Redirect to the homepage after sign-in
+        navigate("/");
       } else {
         setStatus(data.message);
       }
