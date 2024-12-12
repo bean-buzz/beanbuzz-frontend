@@ -168,7 +168,7 @@ export default function HomePage() {
       {/* User Reviews Section */}
       <section className="user-review-sevtion">
         <div className="review-container">
-          <h1>Use Rivews</h1>
+          <h1>Customer Reviews</h1>
         </div>
       </section>
     </>

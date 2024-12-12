@@ -21,6 +21,10 @@ function App() {
         <Navbar />
 
         <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<OurMenuPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+
           {/* All routes within here are protected by a jwt check */}
           <Route
             path="/"
@@ -29,11 +33,7 @@ function App() {
                 <ProtectedLayout />
               </ProtectedRoute>
             }
-          >
-            <Route path="/" element={<HomePage />} />
-            <Route path="/menu" element={<OurMenuPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Route>
+          ></Route>
           <Route path="/auth" element={<UserAuthenticationPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route
