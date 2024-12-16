@@ -6,7 +6,7 @@ import "../styles/Menu.css";
 import CartButton from "./CartButton";
 import CartModal from "./CartModal";
 
-// import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 // Ignore this - just some of Rahul's brainstorming. May not be accurate to current order structure.
 
@@ -29,11 +29,15 @@ export default function Menu() {
     setDisplayModal((previousState) => !previousState);
   }
 
-  // This code is breaking the component, figure out why:
-  // const token = localStorage.getItem("jwtToken");
-  // const decodedToken = jwtDecode(token);
-  // console.log(decodedToken);
-  // console.log(token)
+  const token = localStorage.getItem("jwt");
+
+  if (token){
+    const decodedToken = jwtDecode(token);
+    const userFirstName = decodedToken.firstName;
+    console.log(`decoded token is`, userFirstName);
+  }
+ 
+
 
   // Each button in the menu filter calls this function to update the menu by category
   async function handleCategoryFilter(category) {
@@ -77,7 +81,7 @@ export default function Menu() {
       {displayModal && (
         <CartModal toggleCartModal={toggleCartModal}></CartModal>
       )}
-
+      {token? <h2>Hi {jwtDecode(token).firstName}, what can we get you?</h2> : <h2>What can we getyou?</h2>}
       <div className="cart-button-container">
         <CartButton toggleCartModal={toggleCartModal}></CartButton>
       </div>
