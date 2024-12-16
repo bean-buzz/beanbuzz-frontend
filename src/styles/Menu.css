@@ -1,7 +1,22 @@
-.menu-card-container{
-    margin: 1rem;
+.menu-card-container {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cart-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 7rem;
+}
+
+@media (max-width: 903px) {
+  .cart-button-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
 }

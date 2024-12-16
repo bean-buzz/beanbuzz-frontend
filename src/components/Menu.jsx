@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import MenuItemCard from "./MenuItemCard";
 import MenuFilter from "./MenuFilter";
+
 import "../styles/Menu.css";
+import CartButton from "./CartButton";
+import CartModal from "./CartModal";
+
 // import { jwtDecode } from "jwt-decode";
+
+// Ignore this - just some of Rahul's brainstorming. May not be accurate to current order structure.
 
 // Menu cart steps
 // 1. user clicks order
@@ -14,37 +20,20 @@ import "../styles/Menu.css";
 // 2. onclick saves quantity = 1 and first size -> opens cart
 // 3. user can select quantity and size (if exists)`
 
-
-
-
-
 export default function Menu() {
   const [menuItems, setMenuItems] = useState([]);
+
+  const [displayModal, setDisplayModal] = useState(false);
+
+  function toggleCartModal() {
+    setDisplayModal((previousState) => !previousState);
+  }
 
   // This code is breaking the component, figure out why:
   // const token = localStorage.getItem("jwtToken");
   // const decodedToken = jwtDecode(token);
   // console.log(decodedToken);
   // console.log(token)
-
-  function orderClick(menuItemObj) {
-    console.log(menuItemObj)
-    let defaultSizeAndQuant = {};    
-   
-    if (menuItemObj.multiSizes) {
-      defaultSizeAndQuant = {
-        size:"small",
-        quantity: 1,
-      }
-    } else {
-      defaultSizeAndQuant = {
-        size:"",
-        quantity:1,
-      }
-    }
-    console.log(defaultSizeAndQuant);
-  } 
-
 
   // Each button in the menu filter calls this function to update the menu by category
   async function handleCategoryFilter(category) {
@@ -56,7 +45,7 @@ export default function Menu() {
       if (Array.isArray(Data)) {
         setMenuItems(Data);
       } else {
-        setMenuItems([]); 
+        setMenuItems([]);
       }
     } catch (error) {
       console.error("Error fetching menu items", error);
@@ -85,11 +74,19 @@ export default function Menu() {
 
   return (
     <div>
+      {displayModal && (
+        <CartModal toggleCartModal={toggleCartModal}></CartModal>
+      )}
+
+      <div className="cart-button-container">
+        <CartButton toggleCartModal={toggleCartModal}></CartButton>
+      </div>
       <MenuFilter handleCategoryFilter={handleCategoryFilter}></MenuFilter>
+
       <div className="menu-card-container">
         {menuItems.map((item) => {
           return (
-            <MenuItemCard orderClick={orderClick}key={item._id} menuItemObj={item}></MenuItemCard>
+            <MenuItemCard key={item._id} menuItemObj={item}></MenuItemCard>
           );
         })}
       </div>
