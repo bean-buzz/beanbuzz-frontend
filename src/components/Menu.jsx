@@ -13,8 +13,10 @@ export default function Menu() {
         `${import.meta.env.VITE_DATABASE_URL}/menu/${category}`
       );
       const Data = await response.json();
-      if (Data) {
+      if (Array.isArray(Data)) {
         setMenuItems(Data);
+      } else {
+        setMenuItems([]); 
       }
     } catch (error) {
       console.error("Error fetching menu items", error);
