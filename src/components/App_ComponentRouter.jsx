@@ -21,6 +21,10 @@ function App() {
         <Navbar />
 
         <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<OurMenuPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+
           {/* All routes within here are protected by a jwt check */}
           <Route
             path="/"
@@ -30,9 +34,9 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route path="/" element={<HomePage />} />
+            {/* <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<OurMenuPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact" element={<ContactPage />} /> */}
           </Route>
           <Route path="/auth" element={<UserAuthenticationPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
@@ -40,9 +44,6 @@ function App() {
             path="/reset-password/:token"
             element={<ResetPasswordPage />}
           />
-          <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<OurMenuPage />} />
-          <Route path="/contact" element={<ContactPage />} />
         </Routes>
 
         {/* This is our custom footer! */}
