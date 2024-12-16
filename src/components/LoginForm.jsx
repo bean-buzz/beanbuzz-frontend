@@ -51,6 +51,8 @@ export default function LoginForm({ toggleAuthMode }) {
         // Navigate based on the user role
         if (userRole === "admin") {
           navigate("/admin"); // Redirect to admin page
+        } else if (userRole === "moderator") {
+          navigate("/staff"); // Redirect to kitchen-staff page
         } else if (userRole === "user") {
           navigate("/user"); // Redirect to user page
         } else {

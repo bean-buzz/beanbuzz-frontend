@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 
-export default function AdminNavbar() {
+export default function StaffNavbar() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -10,9 +10,9 @@ export default function AdminNavbar() {
   };
 
   return (
-    <div className="admin-navbar">
-      <h2>Admin Dashboard</h2>
-      <div className="admin-navbar-buttons">
+    <div className="staff-navbar">
+      <h2>Staff Dashboard</h2>
+      <div className="staff-navbar-buttons">
         <button className="logout-button" onClick={handleLogout}>
           Logout
         </button>

@@ -1,4 +1,4 @@
-.main-container {
+.order-container {
   align-items: center; /* Center items horizontally */
   font-size: 30px;
   font-weight: bold;
@@ -8,12 +8,12 @@
   min-height: 60vh; /* Set a minimum height to fill the screen */
 }
 
-.welcom-text {
+.order-text {
   margin-bottom: 10px; /* Add some spacing from the bottom */
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .main-container {
+  .order-container {
     font-size: 26px; /* Adjust font size for tablets */
     font-weight: bold;
   }
@@ -21,7 +21,7 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  .main-container {
+  .order-container {
     font-size: 24px; /* Adjust font size for mobile */
     font-weight: bold;
   }

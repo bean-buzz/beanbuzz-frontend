@@ -1,5 +1,5 @@
 body {
-  background-color: #DCCBC6;
+  background-color: var(--main-bg--color);
   margin: 0; /* Remove default margin */
 }
 
@@ -16,8 +16,8 @@ body {
   margin: 12px; /* Top and bottom margin */
   padding: 5px 15px;
   font-size: 16px;
-  background-color: black;
-  color: white;
+  background-color: var(--button-bg-color);
+  color: var(--bg-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -37,7 +37,6 @@ body {
   height: 20px;
   margin-right: 8px; /* Space between the icon and text */
   padding: 0 5px 8px;
-
 }
 
 /* Slider */
@@ -49,7 +48,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid var(--text-color);
 }
 
 .homepage-slider-image {
@@ -65,7 +64,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  color: var(--bg-color);
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -105,11 +104,11 @@ body {
 }
 
 .dot.active {
-  background-color: #ffffff;
+  background-color: var(--bg-color);
 }
 
 .dot:hover {
-  background-color: black;
+  background-color: var(--text-color);
 }
 
 /* Blur effect when form is shown */
@@ -123,7 +122,7 @@ body {
   top: 20%;
   left: 30px;
   transform: none;
-  background: white;
+  background: var(--bg-color);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -152,14 +151,14 @@ form input {
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: #ffffff;
+  background-color: var(--input-bg-color);
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 button.close-button {
   background-color: #ff5e5e;
-  color: white;
+  color: var(--bg-color);
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -173,8 +172,8 @@ button.close-button:hover {
 }
 
 button.submit-button {
-  background-color: black;
-  color: white;
+  background-color: var(--text-color);
+  color: var(--bg-color);
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -195,7 +194,7 @@ button.submit-button {
     top: 20%;
   }
 
-  .slider-container{
+  .slider-container {
     height: 500px;
   }
 
@@ -221,13 +220,12 @@ button.submit-button {
   }
 }
 
-
 /* Follow-Us Section Styling */
 .follow-us-section {
   text-align: center;
-  background-color: #DCCBC6; /* White background */
-  padding: 30px;
-  margin: 10px 0; /* Top and bottom margin */
+  background-color: var(--main-bg--color); /* White background */
+  padding: 40px;
+  margin: 0; /* Top and bottom margin */
 }
 
 /* Section Heading (h2) */
@@ -236,7 +234,7 @@ button.submit-button {
   font-weight: bold;
   color: #2c2b2b; /* Dark gray text */
   margin-bottom: 1px; /* 5px gap below heading */
-  line-height: .1;
+  line-height: 0.1;
 }
 
 /* Section Description (p) */
@@ -254,8 +252,8 @@ button.submit-button {
   justify-content: center; /* Horizontally center content */
   font-size: 18px;
   font-weight: bold;
-  color: black;
-  background-color: #ffffff; /* Blue button */
+  color: var(--text-color);
+  background-color: var(--bg-color); /* Blue button */
   padding: 5px 15px;
   border: none;
   border-radius: 4px;
@@ -266,8 +264,8 @@ button.submit-button {
 
 /* Follow Button Hover Effect */
 .follow-button:hover {
-  background-color: #000000; /* Darker blue on hover */
-  color: #ffffff;
+  background-color: var(--text-color); /* Darker blue on hover */
+  color: var(--bg-color);
 }
 
 /* Vehicle Icon in Button */
@@ -285,7 +283,6 @@ button.submit-button {
     font-size: 18px;
   }
 }
-
 
 /* About-Us Section Styling */
 /* About Us Section */
@@ -306,7 +303,6 @@ button.submit-button {
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
   overflow: hidden;
-  
 }
 
 /* Add shadowed background using a pseudo-element */
@@ -341,7 +337,7 @@ button.submit-button {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  color: white;
+  color: var(--bg-color);
   font-size: 36px;
   text-align: center;
   margin: 0;
@@ -385,7 +381,7 @@ button.submit-button {
 /* Overlay Text */
 .overlay-text {
   flex: 2;
-  color: #ffffff;
+  color: var(--bg-color);
   font-size: 16px;
   line-height: 1.5;
   text-align: left;

@@ -1,14 +1,14 @@
-import "./AdminLayout.css";
-import AdminNavbar from "./AdminNavbar.jsx";
-import AdminSidebar from "./AdminSidebar.jsx";
+import "./StaffLayout.css";
+import StaffNavbar from "./StaffNavbar.jsx";
+import StaffSidebar from "./StaffSidebar.jsx";
 
 export default function AdminLayout({ children }) {
   return (
     <div className="layout-container">
       <div>
-        <AdminNavbar />
+        <StaffNavbar />
         <div className="inner-layout">
-          <AdminSidebar />
+          <StaffSidebar />
           {children}
         </div>
       </div>

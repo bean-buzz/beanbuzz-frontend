@@ -7,20 +7,32 @@ import UserAuthenticationPage from "../pages/UserAuthenticationPage.jsx";
 import ResetPasswordPage from "../pages/ResetPasswordPage.jsx";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx";
 
+import ProtectedRoute from "../components/ProtectedRoute.jsx";
+
+// Import Layouts
 import PublicLayout from "./layouts/PublicLayout.jsx";
 import ProtectedLayout from "../components/ProtectedLayout.jsx";
-import ProtectedRoute from "../components/ProtectedRoute.jsx";
+import AdminLayout from "./layouts/AdminLayout.jsx";
+import StaffLayout from "./layouts/StaffLayout.jsx";
 
 import Footer from "./Footer.jsx";
 
 // Import admin-specific components
-import AdminLayout from "./layouts/AdminLayout.jsx";
 import AdminDashboard from "../pages/AdminDashboard.jsx";
 import MenuItems from "../pages/MenuItems.jsx";
 import Orders from "../pages/Orders.jsx";
 import Payments from "../pages/Payments.jsx";
 import Reviews from "../pages/Reviews.jsx";
+
+// Import kitchen-staff-specific components
+import StaffDashboard from "../pages/StaffDashboard.jsx";
+
+// Import User-specific components
 import UserProfile from "../pages/UserProfile.jsx";
+import MyProfile from "../pages/MyProfile.jsx";
+import UserReview from "../pages/UserReview.jsx";
+import UserOrder from "../pages/UserOrder.jsx";
+import UserLoyaltyReward from "../pages/UserLoyaltyRewards.jsx";
 
 function App() {
   return (
@@ -86,7 +98,7 @@ function App() {
             }
           />
 
-          {/* Admin Routes */}
+          {/* Admin-specific Routes */}
           <Route
             path="/admin"
             element={
@@ -128,14 +140,30 @@ function App() {
             }
           />
 
+          {/* Kitchen-Staff-specific Routes */}
           <Route
-            path="/user"
+            path="/staff"
             element={
-              <PublicLayout>
-                <UserProfile />
-              </PublicLayout>
+              <StaffLayout>
+                <StaffDashboard />
+              </StaffLayout>
             }
           />
+          <Route
+            path="/staff/orders"
+            element={
+              <StaffLayout>
+                <Orders />
+              </StaffLayout>
+            }
+          />
+
+          {/* User-specific Routes */}
+          <Route path="/user" element={<UserProfile />} />
+          <Route path="/user/profile" element={<MyProfile />} />
+          <Route path="/user/review" element={<UserReview />} />
+          <Route path="/user/orders" element={<UserOrder />} />
+          <Route path="/user/loyalty" element={<UserLoyaltyReward />} />
         </Routes>
 
         {/* This is our custom footer! */}

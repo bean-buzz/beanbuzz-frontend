@@ -1,5 +1,6 @@
 /* Default theme (light mode) */
 :root {
+  --main-bg--color: #e8d4c4;
   --bg-color: #ffffff;
   --text-color: #000000;
   --input-bg-color: #f6f1ef;

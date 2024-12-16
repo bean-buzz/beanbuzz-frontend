@@ -6,6 +6,7 @@ import HomeImage1 from "../assets/images/homepage/homeimage1.jpg";
 import HomeImage2 from "../assets/images/homepage/homeimage2.jpg";
 import HomeImage3 from "../assets/images/homepage/homeimage3.jpg";
 import HomeImage4 from "../assets/images/homepage/homeimage4.jpg";
+import HomeImage5 from "../assets/images/homepage/homeimage5.jpg";
 import AboutImage1 from "../assets/images/homepage/aboutimage1.jpg";
 import AboutImage2 from "../assets/images/homepage/aboutimage2.jpg";
 import "../styles/HomePage.css";
@@ -14,7 +15,7 @@ export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showForm, setShowForm] = useState(false);
 
-  const images = [HomeImage1, HomeImage2, HomeImage3, HomeImage4];
+  const images = [AboutImage1, HomeImage2, HomeImage5, HomeImage4];
 
   // Memoize the handleNext function using useCallback
   const handleNext = useCallback(() => {

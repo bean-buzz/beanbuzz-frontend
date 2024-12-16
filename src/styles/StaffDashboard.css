@@ -1,10 +1,13 @@
-.main-container {
+.dashboard-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Move items to the bottom */
   align-items: center; /* Center items horizontally */
   font-size: 30px;
   font-weight: bold;
   color: #333;
   text-align: center;
-  padding: 0;
+  padding: 20px;
   min-height: 60vh; /* Set a minimum height to fill the screen */
 }
 
@@ -13,16 +16,14 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .main-container {
-    font-size: 26px; /* Adjust font size for tablets */
-    font-weight: bold;
+  .dashboard-container {
+    font-size: 24px; /* Adjust font size for tablets */
   }
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  .main-container {
-    font-size: 24px; /* Adjust font size for mobile */
-    font-weight: bold;
+  .dashboard-container {
+    font-size: 18px; /* Adjust font size for mobile */
   }
 }
