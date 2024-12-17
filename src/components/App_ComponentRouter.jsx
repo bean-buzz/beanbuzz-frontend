@@ -39,6 +39,31 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route
+            path="/"
+            element={
+              <PublicLayout>
+                <HomePage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/menu"
+            element={
+              <PublicLayout>
+                <OurMenuPage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PublicLayout>
+                <ContactPage />
+              </PublicLayout>
+            }
+          />
+
           {/* Public Routes */}
           <Route
             path="/"
@@ -48,28 +73,63 @@ function App() {
               </ProtectedRoute>
             }
           >
+            {/* Admin-specific Routes */}
             <Route
-              path="/"
+              path="/admin"
               element={
-                <PublicLayout>
-                  <HomePage />
-                </PublicLayout>
+                <AdminLayout>
+                  <AdminDashboard />
+                </AdminLayout>
               }
             />
             <Route
-              path="/menu"
+              path="/admin/items"
               element={
-                <PublicLayout>
-                  <OurMenuPage />
-                </PublicLayout>
+                <AdminLayout>
+                  <MenuItems />
+                </AdminLayout>
               }
             />
             <Route
-              path="/contact"
+              path="/admin/orders"
               element={
-                <PublicLayout>
-                  <ContactPage />
-                </PublicLayout>
+                <AdminLayout>
+                  <Orders />
+                </AdminLayout>
+              }
+            />
+            <Route
+              path="/admin/payments"
+              element={
+                <AdminLayout>
+                  <Payments />
+                </AdminLayout>
+              }
+            />
+            <Route
+              path="/admin/reviews"
+              element={
+                <AdminLayout>
+                  <Reviews />
+                </AdminLayout>
+              }
+            />
+
+            {/* Kitchen-Staff-specific Routes */}
+            <Route
+              path="/staff"
+              element={
+                <StaffLayout>
+                  <StaffDashboard />
+                </StaffLayout>
+              }
+            />
+            <Route
+              path="/staff/orders"
+              element={
+                <StaffLayout>
+                  <Orders />
+                </StaffLayout>
               }
             />
           </Route>
@@ -95,66 +155,6 @@ function App() {
               <PublicLayout>
                 <ResetPasswordPage />
               </PublicLayout>
-            }
-          />
-
-          {/* Admin-specific Routes */}
-          <Route
-            path="/admin"
-            element={
-              <AdminLayout>
-                <AdminDashboard />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/items"
-            element={
-              <AdminLayout>
-                <MenuItems />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/orders"
-            element={
-              <AdminLayout>
-                <Orders />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/payments"
-            element={
-              <AdminLayout>
-                <Payments />
-              </AdminLayout>
-            }
-          />
-          <Route
-            path="/admin/reviews"
-            element={
-              <AdminLayout>
-                <Reviews />
-              </AdminLayout>
-            }
-          />
-
-          {/* Kitchen-Staff-specific Routes */}
-          <Route
-            path="/staff"
-            element={
-              <StaffLayout>
-                <StaffDashboard />
-              </StaffLayout>
-            }
-          />
-          <Route
-            path="/staff/orders"
-            element={
-              <StaffLayout>
-                <Orders />
-              </StaffLayout>
             }
           />
 
