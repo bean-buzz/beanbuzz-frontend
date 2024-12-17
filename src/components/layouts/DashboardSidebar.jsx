@@ -1,19 +1,6 @@
 import { Link } from "react-router-dom";
 
-const sideitems = [
-  {
-    id: 1,
-    name: "Home",
-    path: "/",
-  },
-  {
-    id: 3,
-    name: "Orders",
-    path: "/staff/orders",
-  },
-];
-
-export default function Sidebar() {
+export default function DashboardSidebar({ sideitems }) {
   return (
     <div className="sidebar-container">
       <div className="sidebar">
