@@ -49,10 +49,8 @@ export default function LoginForm({ toggleAuthMode }) {
         const userRole = decodedToken.role;
 
         // Navigate based on the user role
-        if (userRole === "admin") {
-          navigate("/admin"); // Redirect to admin page
-        } else if (userRole === "staff") {
-          navigate("/staff"); // Redirect to kitchen-staff page
+        if (userRole === "admin" || userRole === "staff") {
+          navigate("/dashboard"); // Redirect to dashboard page
         } else if (userRole === "user") {
           navigate("/user"); // Redirect to user page
         } else {
