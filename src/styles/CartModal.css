@@ -21,9 +21,12 @@
     line-height: 1.4;
     background: #f1f1f1;
     padding: 14px 28px;
-    border-radius: 3px;
+    border-radius: 5px;
     max-width: 600px;
+    max-height: 500px;
     min-width: 400px;
+    overflow-y: scroll;
+  
 }
 
 .close-modal-button {

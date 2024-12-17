@@ -22,8 +22,8 @@ import { jwtDecode } from "jwt-decode";
 
 export default function Menu() {
   const [menuItems, setMenuItems] = useState([]);
-
   const [displayModal, setDisplayModal] = useState(false);
+  const [cart, setCart] = useState([]);
 
   function toggleCartModal() {
     setDisplayModal((previousState) => !previousState);
@@ -31,13 +31,34 @@ export default function Menu() {
 
   const token = localStorage.getItem("jwt");
 
-  if (token){
+  if (token) {
     const decodedToken = jwtDecode(token);
     const userFirstName = decodedToken.firstName;
     console.log(`decoded token is`, userFirstName);
   }
- 
 
+  function addOrder(menuItemObj) {
+    let orderObj = {
+      menuItem: menuItemObj._id,
+      itemName: menuItemObj.itemName,
+      imageUrl: menuItemObj.imageUrl,
+      size: null,
+      quantity: 1,
+      price: null,
+      specialInstructions:null,
+
+    };
+    if (menuItemObj.multipleSizes){
+      orderObj.size = "medium";
+      orderObj.price = menuItemObj.sizes.medium.price;
+    } else {
+      orderObj.price = menuItemObj.defaultPrice;
+    }
+    console.log(orderObj);
+    setCart([...cart, orderObj]);
+    console.log(cart);
+
+  }
 
   // Each button in the menu filter calls this function to update the menu by category
   async function handleCategoryFilter(category) {
@@ -79,9 +100,13 @@ export default function Menu() {
   return (
     <div>
       {displayModal && (
-        <CartModal toggleCartModal={toggleCartModal}></CartModal>
+        <CartModal toggleCartModal={toggleCartModal} cart={cart}></CartModal>
       )}
-      {token? <h2>Hi {jwtDecode(token).firstName}, what can we get you?</h2> : <h2>What can we getyou?</h2>}
+      {token ? (
+        <h2>Hi {jwtDecode(token).firstName}, what can we get you?</h2>
+      ) : (
+        <h2>What can we get for you?</h2>
+      )}
       <div className="cart-button-container">
         <CartButton toggleCartModal={toggleCartModal}></CartButton>
       </div>
@@ -90,7 +115,7 @@ export default function Menu() {
       <div className="menu-card-container">
         {menuItems.map((item) => {
           return (
-            <MenuItemCard key={item._id} menuItemObj={item}></MenuItemCard>
+            <MenuItemCard key={item._id} menuItemObj={item} addOrder={addOrder}></MenuItemCard>
           );
         })}
       </div>
