@@ -6,7 +6,7 @@ import "../styles/Menu.css";
 import CartButton from "./CartButton";
 import CartModal from "./CartModal";
 
-// import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 // Ignore this - just some of Rahul's brainstorming. May not be accurate to current order structure.
 
@@ -22,18 +22,40 @@ import CartModal from "./CartModal";
 
 export default function Menu() {
   const [menuItems, setMenuItems] = useState([]);
-
   const [displayModal, setDisplayModal] = useState(false);
+  const [cart, setCart] = useState([]);
 
+  // function attached to cart button which toggles displaying the cart modal.
   function toggleCartModal() {
     setDisplayModal((previousState) => !previousState);
   }
 
-  // This code is breaking the component, figure out why:
-  // const token = localStorage.getItem("jwtToken");
-  // const decodedToken = jwtDecode(token);
-  // console.log(decodedToken);
-  // console.log(token)
+  // retrieves token from local storage
+  const token = localStorage.getItem("jwt");
+  
+  // This function is attached to each menu item button. It creates an order object and adds it to the cart. 
+  function addOrder(menuItemObj) {
+    let orderObj = {
+      menuItem: menuItemObj._id,
+      itemName: menuItemObj.itemName,
+      imageUrl: menuItemObj.imageUrl,
+      size: null,
+      quantity: 1,
+      price: null,
+      specialInstructions:null,
+
+    };
+    if (menuItemObj.multipleSizes){
+      orderObj.size = "medium";
+      orderObj.price = menuItemObj.sizes.medium.price;
+    } else {
+      orderObj.price = menuItemObj.defaultPrice;
+    }
+    console.log(orderObj);
+    setCart([...cart, orderObj]);
+    console.log(cart);
+
+  }
 
   // Each button in the menu filter calls this function to update the menu by category
   async function handleCategoryFilter(category) {
@@ -75,9 +97,13 @@ export default function Menu() {
   return (
     <div>
       {displayModal && (
-        <CartModal toggleCartModal={toggleCartModal}></CartModal>
+        <CartModal toggleCartModal={toggleCartModal} cart={cart}></CartModal>
       )}
-
+      {token ? (
+        <h2>Hi {jwtDecode(token).firstName}, what can we get you?</h2>
+      ) : (
+        <h2>What can we get for you?</h2>
+      )}
       <div className="cart-button-container">
         <CartButton toggleCartModal={toggleCartModal}></CartButton>
       </div>
@@ -86,7 +112,7 @@ export default function Menu() {
       <div className="menu-card-container">
         {menuItems.map((item) => {
           return (
-            <MenuItemCard key={item._id} menuItemObj={item}></MenuItemCard>
+            <MenuItemCard key={item._id} menuItemObj={item} addOrder={addOrder}></MenuItemCard>
           );
         })}
       </div>
