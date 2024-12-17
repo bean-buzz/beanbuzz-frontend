@@ -25,18 +25,15 @@ export default function Menu() {
   const [displayModal, setDisplayModal] = useState(false);
   const [cart, setCart] = useState([]);
 
+  // function attached to cart button which toggles displaying the cart modal.
   function toggleCartModal() {
     setDisplayModal((previousState) => !previousState);
   }
 
+  // retrieves token from local storage
   const token = localStorage.getItem("jwt");
-
-  if (token) {
-    const decodedToken = jwtDecode(token);
-    const userFirstName = decodedToken.firstName;
-    console.log(`decoded token is`, userFirstName);
-  }
-
+  
+  // This function is attached to each menu item button. It creates an order object and adds it to the cart. 
   function addOrder(menuItemObj) {
     let orderObj = {
       menuItem: menuItemObj._id,
