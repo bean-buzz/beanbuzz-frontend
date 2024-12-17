@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useState, useEffect } from "react";
+
 import VehicleIcon from "../assets/images/homepage/delivery.png";
 import FollowIcon from "../assets/images/homepage/followicon.png";
 import HomeImage1 from "../assets/images/homepage/homeimage1.jpg";
@@ -9,6 +10,7 @@ import HomeImage4 from "../assets/images/homepage/homeimage4.jpg";
 import HomeImage5 from "../assets/images/homepage/homeimage5.jpg";
 import AboutImage1 from "../assets/images/homepage/aboutimage1.jpg";
 import AboutImage2 from "../assets/images/homepage/aboutimage2.jpg";
+
 import "../styles/HomePage.css";
 
 export default function HomePage() {
