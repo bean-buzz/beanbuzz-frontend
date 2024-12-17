@@ -1,0 +1,143 @@
+.layout-container {
+  padding: 0;
+}
+
+.inner-layout {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 20px;
+}
+
+.staff-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: black;
+}
+
+.staff-navbar h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  margin-left: 30px;
+}
+
+.staff-navbar .staff-navbar-buttons {
+  margin: 25px;
+  font-size: 18px;
+}
+
+.staff-navbar-buttons .logout-button {
+  background-color: #a4694e; /* Brownish color */
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #8b4513; /* Darker brown */
+}
+
+.sidebar-container {
+  padding: 5px;
+}
+
+.sidebar {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+  min-height: 90vh;
+}
+
+.sidebar-item {
+  background-color: white;
+  width: 70%;
+  padding: 10px;
+  padding-left: 20px;
+  margin: 0 auto;
+  letter-spacing: 1px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for a modern look */
+  transition: transform 0.2s, background-color 0.2s; /* Add hover effects */
+}
+
+.sidebar-item:hover {
+  background-color: #f4f4f4; /* Light hover effect */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .inner-layout {
+    grid-template-columns: 1fr; /* Single column layout for main content */
+  }
+
+  .sidebar {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns for the buttons */
+    gap: 20px; /* Add spacing between the items */
+    justify-content: center; /* Center the grid in the container */
+    padding: 20px; /* Adjust padding for better alignment */
+    align-content: start; /* Align the grid content at the start */
+    min-height: auto;
+  }
+
+  .sidebar-item {
+    width: 90%; /* Make buttons fill their grid cells */
+    height: 10px;
+    background-color: white; /* Match your design */
+    color: black; /* Text color */
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .staff-navbar h2 {
+    text-align: center; /* Center the heading */
+    font-size: 25px;
+  }
+
+  .dashboard-container {
+    text-align: center; /* Center the welcome message */
+    padding: 20px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .inner-layout {
+    grid-template-columns: 1fr; /* Change to a single column layout */
+  }
+
+  .sidebar {
+    padding: 20px 0; /* Add padding for nicer spacing on mobile */
+    min-height: auto; /* Remove min-height on mobile */
+  }
+
+  .sidebar-item {
+    width: 80%;
+  }
+
+  .staff-navbar h2 {
+    font-size: 25px;
+  }
+
+  .staff-navbar-buttons {
+    margin-top: 10px; /* Add margin for spacing */
+    font-size: 14px;
+  }
+
+  .staff-navbar-buttons .logout-button {
+    font-size: 16px;
+  }
+}
