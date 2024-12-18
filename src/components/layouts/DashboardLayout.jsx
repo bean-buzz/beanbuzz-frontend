@@ -56,6 +56,7 @@ export default function DashboardLayout() {
         <DashboardNavbar />
         <div className="inner-layout">
           <DashboardSidebar sideitems={sideitems} />
+          {/* Renders children */}
           <Outlet />
         </div>
       </div>
