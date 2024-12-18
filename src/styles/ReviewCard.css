@@ -1,0 +1,66 @@
+.review-card {
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex; /* Enable flexbox for the entire card */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 200px; /* Optional: Set a height for the card */
+}
+
+.review-user {
+  color: var(--input-text-color);
+  font-size: 1.2rem;
+  margin-left: 10px; /* Add gap between logo and username */
+}
+
+.review-message {
+  font-style: italic;
+  color: var(--input-text-color);
+}
+
+/* Star Styling */
+.review-stars {
+  margin: 8px 0;
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #ccc; /* Default gray for stars */
+}
+
+.star.filled {
+  color: #f39c12; /* Yellow color for filled stars */
+}
+
+.user-info {
+  display: flex; /* Arrange logo and username in a row */
+  align-items: center; /* Align logo and username vertically in the middle */
+  justify-content: center; /* Center them horizontally */
+  margin-bottom: 10px; /* Add space between user info and other content */
+}
+
+.user-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.review-date {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #666;
+}
+
+.review-message {
+  font-size: 18px;
+}
