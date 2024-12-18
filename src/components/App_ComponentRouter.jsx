@@ -7,25 +7,62 @@ import UserAuthenticationPage from "../pages/UserAuthenticationPage.jsx";
 import ResetPasswordPage from "../pages/ResetPasswordPage.jsx";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx";
 
-import ProtectedLayout from "../components/ProtectedLayout.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 
-import Navbar from "./Navbar.jsx";
+// Import Layouts
+import PublicLayout from "./layouts/PublicLayout.jsx";
+import ProtectedLayout from "../components/ProtectedLayout.jsx";
+
 import Footer from "./Footer.jsx";
+
+//Import Dashboard
+import DashboardLayout from "./layouts/DashboardLayout.jsx";
+import Dashboard from "../pages/Dashboard.jsx";
+
+// Import admin-specific components
+import MenuItems from "../pages/MenuItems.jsx";
+import Orders from "../pages/Orders.jsx";
+import Payments from "../pages/Payments.jsx";
+import Reviews from "../pages/Reviews.jsx";
+
+// Import User-specific components
+import UserProfile from "../pages/UserProfile.jsx";
+import MyProfile from "../pages/MyProfile.jsx";
+import UserReview from "../pages/UserReview.jsx";
+import UserOrder from "../pages/UserOrder.jsx";
+import UserLoyaltyReward from "../pages/UserLoyaltyRewards.jsx";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* This is our custom navbar! */}
-        <Navbar />
-
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<OurMenuPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/"
+            element={
+              <PublicLayout>
+                <HomePage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/menu"
+            element={
+              <PublicLayout>
+                <OurMenuPage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PublicLayout>
+                <ContactPage />
+              </PublicLayout>
+            }
+          />
 
-          {/* All routes within here are protected by a jwt check */}
+          {/* Protected Routes */}
           <Route
             path="/"
             element={
@@ -34,16 +71,47 @@ function App() {
               </ProtectedRoute>
             }
           >
-            {/* <Route path="/" element={<HomePage />} />
-            <Route path="/menu" element={<OurMenuPage />} />
-            <Route path="/contact" element={<ContactPage />} /> */}
+            <Route element={<DashboardLayout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/items" element={<MenuItems />} />
+              <Route path="/dashboard/orders" element={<Orders />} />
+              <Route path="/dashboard/payments" element={<Payments />} />
+              <Route path="/dashboard/reviews" element={<Reviews />} />
+            </Route>
           </Route>
-          <Route path="/auth" element={<UserAuthenticationPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+
+
+          <Route
+            path="/auth"
+            element={
+              <PublicLayout>
+                <UserAuthenticationPage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/forgot-password"
+            element={
+              <PublicLayout>
+                <ForgotPasswordPage />
+              </PublicLayout>
+            }
+          />
           <Route
             path="/reset-password/:token"
-            element={<ResetPasswordPage />}
+            element={
+              <PublicLayout>
+                <ResetPasswordPage />
+              </PublicLayout>
+            }
           />
+
+          {/* User-specific Routes */}
+          <Route path="/user" element={<UserProfile />} />
+          <Route path="/user/profile" element={<MyProfile />} />
+          <Route path="/user/review" element={<UserReview />} />
+          <Route path="/user/orders" element={<UserOrder />} />
+          <Route path="/user/loyalty" element={<UserLoyaltyReward />} />
         </Routes>
 
         {/* This is our custom footer! */}
