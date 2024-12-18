@@ -5,8 +5,9 @@ import DashboardSidebar from "./DashboardSidebar.jsx";
 
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { Outlet } from "react-router-dom";
 
-export default function Layout() {
+export default function DashboardLayout() {
   const [sideitems, setSideitems] = useState([]);
 
   useEffect(() => {
