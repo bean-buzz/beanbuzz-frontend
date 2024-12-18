@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import "./DashboardLayout.css";
 import DashboardNavbar from "./DashboardNavbar.jsx";
 import DashboardSidebar from "./DashboardSidebar.jsx";
@@ -24,7 +25,7 @@ export default function Layout() {
             { id: 2, name: "Menu Items", path: "dashboard/items" },
             { id: 3, name: "Orders", path: "dashboard/orders" },
             { id: 4, name: "Payments", path: "dashboard/payments" },
-            { id: 5, name: "User Reviews", path: "dashboard/reviews" },
+            { id: 5, name: "User Reviews", path: "/dashboard/reviews" },
           ];
           break;
 
@@ -55,6 +56,7 @@ export default function Layout() {
         <DashboardNavbar />
         <div className="inner-layout">
           <DashboardSidebar sideitems={sideitems} />
+          <Outlet />
         </div>
       </div>
     </div>
