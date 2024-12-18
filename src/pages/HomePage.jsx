@@ -11,7 +11,7 @@ import HomeImage5 from "../assets/images/homepage/homeimage5.jpg";
 import AboutImage1 from "../assets/images/homepage/aboutimage1.jpg";
 import AboutImage2 from "../assets/images/homepage/aboutimage2.jpg";
 
-import ReviewSlider from "../components/ReviewSlider.jsx";
+import ApprovedReviews from "../components/ApprovedReviews";
 
 import "../styles/HomePage.css";
 
@@ -174,7 +174,9 @@ export default function HomePage() {
       <section className="user-review-sevtion">
         <div className="review-container">
           <h1>Customer Reviews</h1>
-          <div></div>
+          <div>
+            <ApprovedReviews />
+          </div>
         </div>
       </section>
     </>

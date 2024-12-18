@@ -31,7 +31,7 @@
 
 /* Hover effect for both arrows */
 .custom-arrow:hover {
-  background-color: red;
+  background-color: var(--button-bg-color);
   color: transparent;
 }
 

@@ -32,8 +32,6 @@ import UserReview from "../pages/UserReview.jsx";
 import UserOrder from "../pages/UserOrder.jsx";
 import UserLoyaltyReward from "../pages/UserLoyaltyRewards.jsx";
 
-import ApprovedReviews from "../components/ApprovedReviews.jsx";
-
 function App() {
   return (
     <div className="App">
@@ -59,7 +57,7 @@ function App() {
             path="/contact"
             element={
               <PublicLayout>
-                <ApprovedReviews />
+                <ContactPage />
               </PublicLayout>
             }
           />

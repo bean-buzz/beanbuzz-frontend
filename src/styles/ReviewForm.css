@@ -17,11 +17,24 @@
 }
 
 /* Heading styling */
-h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+.review-main-text {
+  text-align: left;
+  font-size: 25px;
+  margin: 0; /* Adjust top and bottom margin */
   color: #333;
+}
+
+.form-content .review-text {
+  font-size: 16px;
+  text-align: left;
+  margin: 0; /* Adjust top and bottom margin */
+}
+
+.line {
+  height: 1px; /* Thickness of the line */
+  width: 100%; /* Full width */
+  background-color: #9a9595; /* Line color */
+  margin: 0;
 }
 
 /* Form label styling */
@@ -99,7 +112,7 @@ textarea {
 }
 
 .submit-button:hover {
-  background-color: #357ab7;
+  background-color: #a4694e;
 }
 
 /* Responsive design for smaller screens */

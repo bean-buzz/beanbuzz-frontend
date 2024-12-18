@@ -68,8 +68,9 @@ export default function ReviewForm() {
     <div>
       <div className="review-form">
         <div className="form-content">
-          <h2>Leave a Review</h2>
-
+          <h2 className="review-main-text">Leave a Review</h2>
+          <p className="review-text">How would you rate us?</p>
+          <div className="line"></div>
           <form onSubmit={handleCreateReviewSubmit}>
             <div>
               <label htmlFor="userName">Your Name:</label>
