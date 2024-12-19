@@ -62,6 +62,7 @@ export default function Menu() {
     console.log(cart);
   }
 
+// function that removes an order from the cart
   const removeOrder = (indexToRemove) => {
     setCart(cart.filter((_, index) => index !== indexToRemove));
   };
@@ -89,7 +90,7 @@ export default function Menu() {
       })
     );
   };
-
+// This function changes the size of an order.
   const handleSizeChange = (indexToChange, newSize) => {
     console.log("handled");
     setCart(
