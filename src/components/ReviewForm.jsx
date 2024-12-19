@@ -67,7 +67,7 @@ export default function ReviewForm() {
   return (
     <div>
       <div className="review-form">
-        <div className="form-content">
+        <div className="review-form-content">
           <h2 className="review-main-text">Leave a Review</h2>
           <p className="review-text">How would you rate us?</p>
           <div className="line"></div>
@@ -104,7 +104,7 @@ export default function ReviewForm() {
                 Tell us more about your experience with us:
               </label>
               <textarea
-                id="reviewMessage"
+                id="review-message"
                 name="reviewMessage"
                 value={createReview.reviewMessage}
                 onChange={handleReviewChange}
