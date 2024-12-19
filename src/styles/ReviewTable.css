@@ -1,0 +1,124 @@
+/* General Styling */
+.review-table-container {
+  margin: 20px;
+  color: #333;
+  font-size: 18px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.review-table th,
+.review-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.review-table th {
+  background-color: #7b5730;
+  color: white;
+  font-weight: bold;
+}
+
+.review-table tr:nth-child(even) {
+  background-color: #e5dfdf;
+}
+
+.review-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.approve-btn,
+.decline-btn {
+  padding: 6px 12px;
+  margin: 4px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.approve-btn {
+  background-color: #4caf50;
+}
+
+.approve-btn:hover {
+  background-color: #45a049;
+}
+
+.decline-btn {
+  background-color: #f44336;
+}
+
+.decline-btn:hover {
+  background-color: #d73832;
+}
+
+/* Card Container for Mobile View */
+.review-card-container {
+  display: none; /* Hidden by default for larger screens */
+  margin-top: 20px;
+}
+
+.review-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.review-card p {
+  margin: 6px 0;
+}
+
+.review-card-actions {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.review-card-actions button {
+  margin-left: 10px;
+}
+
+/* Responsive Design - Mobile View */
+@media (max-width: 768px) {
+  /* Hide Table */
+  .review-table {
+    display: none;
+  }
+
+  /* Show Card View */
+  .review-card-container {
+    display: block;
+  }
+
+  /* Center .review-card-actions buttons */
+  .review-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .review-card-actions button {
+    margin: 4px; /* Adjust spacing between buttons */
+  }
+}

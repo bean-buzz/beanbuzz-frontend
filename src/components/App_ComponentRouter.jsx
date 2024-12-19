@@ -12,20 +12,18 @@ import ProtectedRoute from "../components/ProtectedRoute.jsx";
 // Import Layouts
 import PublicLayout from "./layouts/PublicLayout.jsx";
 import ProtectedLayout from "../components/ProtectedLayout.jsx";
-import AdminLayout from "./layouts/AdminLayout.jsx";
-import StaffLayout from "./layouts/StaffLayout.jsx";
 
 import Footer from "./Footer.jsx";
 
+//Import Dashboard
+import DashboardLayout from "./layouts/DashboardLayout.jsx";
+import Dashboard from "../pages/Dashboard.jsx";
+
 // Import admin-specific components
-import AdminDashboard from "../pages/AdminDashboard.jsx";
 import MenuItems from "../pages/MenuItems.jsx";
 import Orders from "../pages/Orders.jsx";
 import Payments from "../pages/Payments.jsx";
 import Reviews from "../pages/Reviews.jsx";
-
-// Import kitchen-staff-specific components
-import StaffDashboard from "../pages/StaffDashboard.jsx";
 
 // Import User-specific components
 import UserProfile from "../pages/UserProfile.jsx";
@@ -64,7 +62,7 @@ function App() {
             }
           />
 
-          {/* Public Routes */}
+          {/* Protected Routes */}
           <Route
             path="/"
             element={
@@ -73,66 +71,15 @@ function App() {
               </ProtectedRoute>
             }
           >
-            {/* Admin-specific Routes */}
-            <Route
-              path="/admin"
-              element={
-                <AdminLayout>
-                  <AdminDashboard />
-                </AdminLayout>
-              }
-            />
-            <Route
-              path="/admin/items"
-              element={
-                <AdminLayout>
-                  <MenuItems />
-                </AdminLayout>
-              }
-            />
-            <Route
-              path="/admin/orders"
-              element={
-                <AdminLayout>
-                  <Orders />
-                </AdminLayout>
-              }
-            />
-            <Route
-              path="/admin/payments"
-              element={
-                <AdminLayout>
-                  <Payments />
-                </AdminLayout>
-              }
-            />
-            <Route
-              path="/admin/reviews"
-              element={
-                <AdminLayout>
-                  <Reviews />
-                </AdminLayout>
-              }
-            />
-
-            {/* Kitchen-Staff-specific Routes */}
-            <Route
-              path="/staff"
-              element={
-                <StaffLayout>
-                  <StaffDashboard />
-                </StaffLayout>
-              }
-            />
-            <Route
-              path="/staff/orders"
-              element={
-                <StaffLayout>
-                  <Orders />
-                </StaffLayout>
-              }
-            />
+            <Route element={<DashboardLayout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/items" element={<MenuItems />} />
+              <Route path="/dashboard/orders" element={<Orders />} />
+              <Route path="/dashboard/payments" element={<Payments />} />
+              <Route path="/dashboard/reviews" element={<Reviews />} />
+            </Route>
           </Route>
+
           <Route
             path="/auth"
             element={

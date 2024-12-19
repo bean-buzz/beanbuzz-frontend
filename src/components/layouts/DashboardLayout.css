@@ -8,26 +8,26 @@
   gap: 20px;
 }
 
-.staff-navbar {
+.dashboard-navbar {
   display: flex;
   justify-content: space-between;
   padding: 10px;
   background-color: black;
 }
 
-.staff-navbar h2 {
+.dashboard-navbar h2 {
   font-size: 30px;
   font-weight: bold;
   color: white;
   margin-left: 30px;
 }
 
-.staff-navbar .staff-navbar-buttons {
+.dashboard-navbar .dashboard-navbar-buttons {
   margin: 25px;
   font-size: 18px;
 }
 
-.staff-navbar-buttons .logout-button {
+.dashboard-navbar-buttons .logout-button {
   background-color: #a4694e; /* Brownish color */
   font-size: 18px;
   color: #fff;
@@ -43,7 +43,7 @@
 }
 
 .sidebar-container {
-  padding: 5px;
+  padding: 5px; /* 5px padding for top, bottom, and left */
 }
 
 .sidebar {
@@ -52,7 +52,9 @@
   flex-direction: column;
   gap: 20px;
   padding-top: 20px;
-  min-height: 90vh;
+  padding-bottom: 20px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .sidebar-item {
@@ -102,7 +104,7 @@
     text-align: center;
   }
 
-  .staff-navbar h2 {
+  .dashboard-navbar h2 {
     text-align: center; /* Center the heading */
     font-size: 25px;
   }
@@ -128,16 +130,16 @@
     width: 80%;
   }
 
-  .staff-navbar h2 {
+  .dashboard-navbar h2 {
     font-size: 25px;
   }
 
-  .staff-navbar-buttons {
+  .dashboard-navbar-buttons {
     margin-top: 10px; /* Add margin for spacing */
     font-size: 14px;
   }
 
-  .staff-navbar-buttons .logout-button {
+  .dashboard-navbar-buttons .logout-button {
     font-size: 16px;
   }
 }
