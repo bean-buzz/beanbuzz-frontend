@@ -80,7 +80,6 @@ function App() {
             </Route>
           </Route>
 
-
           <Route
             path="/auth"
             element={

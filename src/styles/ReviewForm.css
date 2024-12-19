@@ -1,0 +1,145 @@
+/* Container for the form */
+.review-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: e8d4c4;
+}
+
+.review-form-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Heading styling */
+.review-main-text {
+  text-align: left;
+  font-size: 25px;
+  margin: 0; /* Adjust top and bottom margin */
+  color: #333;
+}
+
+.review-form-content .review-text {
+  font-size: 16px;
+  text-align: left;
+  margin: 0; /* Adjust top and bottom margin */
+}
+
+.line {
+  height: 1px; /* Thickness of the line */
+  width: 100%; /* Full width */
+  background-color: #9a9595; /* Line color */
+  margin-bottom: 30px;
+  margin-top: 8px;
+}
+
+/* Form label styling */
+label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+.message {
+  margin-top: 10px;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+/* Form input fields */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: black;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+}
+
+#review-message {
+  background-color: white;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Rating component styling */
+.star-rating-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.star-rating-container .star {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.star-rating-container .star.filled {
+  color: #f39c12; /* Yellow for filled stars */
+}
+
+/* Submit button styling */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #a4694e;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .review-form {
+    padding: 10px;
+  }
+
+  .form-content {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input[type="text"],
+  textarea {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}

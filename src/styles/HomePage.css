@@ -1,5 +1,5 @@
 body {
-  background-color: #DCCBC6;
+  background-color: #dccbc6;
   margin: 0; /* Remove default margin */
 }
 
@@ -37,11 +37,10 @@ body {
   height: 20px;
   margin-right: 8px; /* Space between the icon and text */
   padding: 0 5px 8px;
-
 }
 
 /* Slider */
-.slider-container {
+.main-slider-container {
   position: relative;
   max-width: 100%;
   height: 600px; /* Adjust as needed */
@@ -195,7 +194,7 @@ button.submit-button {
     top: 20%;
   }
 
-  .slider-container{
+  .slider-container {
     height: 500px;
   }
 
@@ -221,11 +220,10 @@ button.submit-button {
   }
 }
 
-
 /* Follow-Us Section Styling */
 .follow-us-section {
   text-align: center;
-  background-color: #DCCBC6; /* White background */
+  background-color: #dccbc6; /* White background */
   padding: 30px;
   margin: 10px 0; /* Top and bottom margin */
 }
@@ -236,7 +234,7 @@ button.submit-button {
   font-weight: bold;
   color: #2c2b2b; /* Dark gray text */
   margin-bottom: 1px; /* 5px gap below heading */
-  line-height: .1;
+  line-height: 0.1;
 }
 
 /* Section Description (p) */
@@ -286,7 +284,6 @@ button.submit-button {
   }
 }
 
-
 /* About-Us Section Styling */
 /* About Us Section */
 .about-us-section {
@@ -306,7 +303,6 @@ button.submit-button {
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
   overflow: hidden;
-  
 }
 
 /* Add shadowed background using a pseudo-element */
@@ -406,6 +402,8 @@ button.submit-button {
 
 .cafe-info h2 {
   margin: 0;
+  color: #ffffff;
+  font-size: 20px;
 }
 
 /* Tab Screen Adjustments (768px and larger) */
@@ -423,15 +421,15 @@ button.submit-button {
 
   .overlay-text {
     font-size: 14px;
-    margin-top: 100px;
+    margin-top: 80px;
   }
 
   .image-text-container {
     gap: 30px; /* Reduced gap for better alignment */
   }
 
-  .cafe-info {
-    font-size: 12px;
+  .cafe-info h2 {
+    font-size: 14px;
   }
 }
 
@@ -451,7 +449,7 @@ button.submit-button {
   }
 
   .overlay-text {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 30px;
   }
 }

@@ -7,7 +7,6 @@ import { jwtDecode } from "jwt-decode";
 import { Outlet } from "react-router-dom";
 
 export default function DashboardLayout() {
-
   const [sideitems, setSideitems] = useState([]);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export default function DashboardLayout() {
             { id: 2, name: "Menu Items", path: "dashboard/items" },
             { id: 3, name: "Orders", path: "dashboard/orders" },
             { id: 4, name: "Payments", path: "dashboard/payments" },
-            { id: 5, name: "User Reviews", path: "dashboard/reviews" },
+            { id: 5, name: "User Reviews", path: "/dashboard/reviews" },
           ];
           break;
 

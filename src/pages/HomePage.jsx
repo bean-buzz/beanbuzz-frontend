@@ -11,6 +11,8 @@ import HomeImage5 from "../assets/images/homepage/homeimage5.jpg";
 import AboutImage1 from "../assets/images/homepage/aboutimage1.jpg";
 import AboutImage2 from "../assets/images/homepage/aboutimage2.jpg";
 
+import ApprovedReviews from "../components/ApprovedReviews";
+
 import "../styles/HomePage.css";
 
 export default function HomePage() {
@@ -61,7 +63,7 @@ export default function HomePage() {
         </button>
 
         {/* Image Slider */}
-        <div className="slider-container">
+        <div className="main-slider-container">
           <button className="slider-button prev" onClick={handlePrev}>
             &lt;
           </button>
@@ -172,6 +174,9 @@ export default function HomePage() {
       <section className="user-review-sevtion">
         <div className="review-container">
           <h1>Customer Reviews</h1>
+          <div>
+            <ApprovedReviews />
+          </div>
         </div>
       </section>
     </>
