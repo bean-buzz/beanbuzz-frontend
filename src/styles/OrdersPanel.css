@@ -1,75 +1,79 @@
 .order-list-container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 90%;
-    overflow: hidden;
-  }
-  
-  .order-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .order-table th,
-  .order-table td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .order-table th {
-    background-color: #4caf50;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .order-table td {
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .order-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Status styles */
-  .action-complete {
-    background-color: #28a745;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .action-pending {
-    background-color: #ff8c00;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  /* View Order Button */
-  .view-details-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 6px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-  
-  .view-details-btn:hover {
-    background-color: #0056b3;
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.order-table th,
+.order-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.order-table th {
+  background-color: #cecece;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.order-table td {
+  font-size: 14px;
+  color: #333;
+}
+
+.order-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  color: #fff;
+}
+
+.status-badge.pending {
+  background-color: #e7b416;
+}
+
+.status-badge.in-progress {
+  background-color: #ffa500;
+}
+
+.status-badge.completed {
+  background-color: #45a049;
+}
+
+.status-badge.cancelled {
+  background-color: #f44336;
+}
+
+.view-details-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.view-details-btn:hover {
+  background-color: #0056b3;
+}
