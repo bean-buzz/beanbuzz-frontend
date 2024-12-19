@@ -7,19 +7,24 @@
   background: rgba(99, 99, 99, 0.2);
   backdrop-filter: blur(3px);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .order-modal-content {
-  background: white;
-  padding: 20px;
+  background-color: var(--bg-color);
+  padding: 30px;
   border-radius: 8px;
-  max-width: 500px;
-  width: 90%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
+  width: 60%;
+  overflow-y: auto;
   position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  max-height: 80vh;
 }
 
 .order-modal-close {
@@ -28,10 +33,101 @@
   right: 10px;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 30px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.order-modal-close:hover {
+  color: #f44336;
+}
+
+.order-modal-content {
+  font-size: 14px;
+  color: var(--text-color);
+  margin: 10px 0;
+}
+
+.order-modal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.order-modal-row label {
+  flex: 1;
+  text-align: right;
+  margin-right: 15px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.order-modal-row select,
+.order-modal-row textarea,
+.order-modal-row input {
+  flex: 2;
+  padding: 10px;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--input-text-color);
+}
+
+.order-modal-row textarea {
+  resize: none;
+  height: 20px;
+}
+
+.order-modal-grand-total,
+.order-modal-item-name {
+  margin-top: 20px;
+}
+
+.order-modal-btn,
+.order-modal-btn-remove {
+  padding: 5px;
+  font-size: 14px;
+
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.order-modal-close:focus {
-  outline: none;
+.order-modal-btn-remove {
+  align-self: flex-start;
+  margin-left: auto;
+
+  color: white;
+  background-color: #f44336;
+}
+
+.order-modal-section-title h2 {
+  margin-top: 30px;
+}
+
+.order-modal-container ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.order-modal-container .order-modal-item-name,
+.order-modal-grand-total {
+  color: #007bff;
+}
+
+.order-modal-row div {
+  color: #007bff;
+}
+
+.order-modal-container {
+  padding-right: 10px;
+  margin-top: 10px;
+  overflow-y: auto;
+  max-height: 60vh;
 }
