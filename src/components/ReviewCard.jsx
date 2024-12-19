@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Reviewcard.css";
+import "../styles/ReviewCard.css";
 
 export default function ReviewCard({
   userName,
