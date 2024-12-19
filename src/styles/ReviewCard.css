@@ -1,5 +1,5 @@
 .review-card {
-  padding: 16px;
+  padding: 12px;
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -16,9 +16,9 @@
   margin-left: 10px; /* Add gap between logo and username */
 }
 
-.review-message {
+.review-card .review-message {
   font-style: italic;
-  color: var(--input-text-color);
+  font-size: 14px;
 }
 
 /* Star Styling */
@@ -53,6 +53,7 @@
   font-size: 18px;
   font-weight: bold;
   color: #333;
+  margin-top: 10px;
 }
 
 .review-date {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import OrderModal from "./OrderModal";
 import "../styles/OrdersPanel.css";
 
-export default function OrdersPanel(orderId) {
+export default function OrdersPanel() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,6 +33,8 @@ export default function OrdersPanel(orderId) {
 
         const data = await response.json();
         setOrders(data);
+
+        console.log(`Loaded Panel`);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -41,11 +43,11 @@ export default function OrdersPanel(orderId) {
     };
 
     fetchOrders();
-  }, []);
+  }, [isModalOpen]);
 
-  //   Toggle the select order's modal
+  // Toggle the selected orders modal
   const toggleModal = (order = null) => {
-    setSelectedOrder(order);
+    setSelectedOrder(order ? order._id : null);
     setIsModalOpen(!isModalOpen);
   };
 
@@ -69,34 +71,29 @@ export default function OrdersPanel(orderId) {
         <tbody>
           {orders.map((order) => (
             <tr key={order._id}>
-              {/* Order Code
-              <td>{order._id}</td> */}
-
               {/* Table No */}
               <td>{order.tableNumber || "-"}</td>
-
               {/* Order Time */}
               <td>{new Date(order.createdAt).toLocaleString()}</td>
-
               {/* Completed Time */}
               <td>
                 {order.orderStatus === "Completed"
                   ? new Date(order.updatedAt).toLocaleString()
                   : "-"}
               </td>
-
               {/* Status */}
               <td>
-                {order.orderStatus === "Completed" ? (
-                  <span className="action-complete">COMPLETE</span>
-                ) : (
-                  <span className="action-pending">PENDING</span>
-                )}
+                <span
+                  className={`status-badge ${order.orderStatus
+                    .toLowerCase()
+                    .replace(" ", "-")}`}
+                >
+                  {order.orderStatus.toUpperCase()}
+                </span>
               </td>
 
               {/* Total Price */}
               <td>${order.totalPrice.toFixed(2)}</td>
-
               {/* View Order Button */}
               <td>
                 <button
@@ -114,7 +111,7 @@ export default function OrdersPanel(orderId) {
       <OrderModal
         isOpen={isModalOpen}
         toggleModal={() => toggleModal(null)}
-        order={selectedOrder}
+        orderId={selectedOrder}
       />
     </div>
   );

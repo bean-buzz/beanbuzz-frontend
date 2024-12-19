@@ -116,6 +116,55 @@ body {
   z-index: 1100; /* Ensure it's above all other elements */
 }
 
+/* User Account Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  position: absolute; /* Stay relative to the .dropdown container */
+  top: 120%; /* Position it directly below the .dropdown container */
+  right: 0; /* Align with the right edge of the .dropdown container */
+  background-color: white; /* Keep the background color */
+  border: 1px solid #a4694e;
+  border-radius: 5px;
+  display: block;
+  flex-direction: column;
+  z-index: 1000; /* Ensure it appears above other elements */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better visibility */
+  width: 250px;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  display: block;
+  color: black;
+  padding: 20px 0px;
+  font-size: 18px;
+  width: 100%;
+  text-align: center; /* Center text */
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+  color: #8b4513;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: #ddd;
+  width: 90%;
+  margin-left: 10px;
+  text-align: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-links {
@@ -133,5 +182,26 @@ body {
   .login-button {
     margin-top: 10px;
     margin-bottom: 30px;
+  }
+  .dropdown-menu {
+    position: static;
+    background-color: black;
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+    flex-direction: column; /* Stack items vertically in mobile view */
+  }
+
+  .dropdown-menu a {
+    padding: 15px 25px;
+    font-size: 18px;
+    color: white;
+    padding: 15px 0;
+  }
+  .mobile-menu h3:hover {
+    color: #8b4513;
+  }
+  .dropdown-divider {
+    display: none;
   }
 }
