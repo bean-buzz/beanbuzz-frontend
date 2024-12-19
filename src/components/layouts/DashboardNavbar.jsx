@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
 export default function DashboardNavbar() {
-  const handleLogout = async () => {
-    console.log("Logout clicked");
-    // Add your logout logic here (clear jwt)
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    navigate("/auth");
   };
 
   return (
