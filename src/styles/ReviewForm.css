@@ -7,7 +7,7 @@
   background-color: e8d4c4;
 }
 
-.form-content {
+.review-form-content {
   background-color: white;
   padding: 30px;
   border-radius: 8px;
@@ -24,7 +24,7 @@
   color: #333;
 }
 
-.form-content .review-text {
+.review-form-content .review-text {
   font-size: 16px;
   text-align: left;
   margin: 0; /* Adjust top and bottom margin */
@@ -34,7 +34,8 @@
   height: 1px; /* Thickness of the line */
   width: 100%; /* Full width */
   background-color: #9a9595; /* Line color */
-  margin: 0;
+  margin-bottom: 30px;
+  margin-top: 8px;
 }
 
 /* Form label styling */
@@ -72,7 +73,7 @@ textarea:focus {
   outline: none;
 }
 
-#reviewMessage {
+#review-message {
   background-color: white;
 }
 

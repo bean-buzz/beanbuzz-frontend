@@ -63,7 +63,7 @@ export default function HomePage() {
         </button>
 
         {/* Image Slider */}
-        <div className="slider-container">
+        <div className="main-slider-container">
           <button className="slider-button prev" onClick={handlePrev}>
             &lt;
           </button>
