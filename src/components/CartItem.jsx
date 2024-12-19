@@ -6,24 +6,27 @@ export default function CartItem({
   increaseQuantity,
   decreaseQuantity,
   handleSizeChange,
+  updateSpecialInstructions,
   index,
 }) {
   return (
-    <div className="cart-item-container">
+    <div className="cart-item">
       <span>
         <img src={cartItemObj.imageUrl}></img>
       </span>
       <span>
         <span className="cart-item-name-container">
           <h5>{cartItemObj.itemName}</h5>
-          {cartItemObj.size ? <select
-          value={cartItemObj.size}
-          onChange={(event) => handleSizeChange(index, event.target.value)}
-        >
-          <option value="small">Small</option>
-          <option value="medium">Medium</option>
-          <option value="large">Large</option>
-        </select> : null}
+          {cartItemObj.size ? (
+            <select
+              value={cartItemObj.size}
+              onChange={(event) => handleSizeChange(index, event.target.value)}
+            >
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+          ) : null}
         </span>
         <span className="cart-item-quant-price-container">
           <button
@@ -51,7 +54,17 @@ export default function CartItem({
             <img src="./bin-x.svg" alt="" />
           </button>
         </span>
-        <p>Instructions: No added sugar please!</p>
+        <p>Please special requirements below</p>
+        <textarea
+          value={
+            cartItemObj.specialInstructions
+              ? cartItemObj.specialInstructions
+              : ""
+          }
+          onChange={(event) => {
+            updateSpecialInstructions(index, event.target.value);
+          }}
+        ></textarea>
       </span>
     </div>
   );

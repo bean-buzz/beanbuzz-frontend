@@ -7,24 +7,13 @@ import CartButton from "./CartButton";
 import CartModal from "./CartModal";
 
 import { jwtDecode } from "jwt-decode";
-
-// Ignore this - just some of Rahul's brainstorming. May not be accurate to current order structure.
-
-// Menu cart steps
-// 1. user clicks order
-//     a. add onclick to button
-//     b. console log object information -> console.log quantity and size in the log information
-//         const = {} - create new object
-//     c. create state at top level of menu componet
-//     d. in the button handler setState = setMenuCart([...currentState, newobject])
-// 2. onclick saves quantity = 1 and first size -> opens cart
-// 3. user can select quantity and size (if exists)`
+import EmptyCartMessage from "./EmptyCartMessage";
 
 export default function Menu() {
   const [menuItems, setMenuItems] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
   const [cart, setCart] = useState([]);
-
+  const [table, setTable] = useState("no-table");
 
   // function attached to cart button which toggles displaying the cart modal.
   function toggleCartModal() {
@@ -46,7 +35,7 @@ export default function Menu() {
       specialInstructions: null,
       smallPrice: null,
       mediumPrice: null,
-      largePrice: null
+      largePrice: null,
     };
     if (menuItemObj.multipleSizes) {
       orderObj.smallPrice = menuItemObj.sizes.small.price;
@@ -62,7 +51,19 @@ export default function Menu() {
     console.log(cart);
   }
 
-// function that removes an order from the cart
+  const updateSpecialInstructions = (indexToChange, instructions) => {
+    setCart(
+      cart.map((cartItem, index) => {
+        if (index === indexToChange) {
+          console.log("instructions changed");
+          return { ...cartItem, specialInstructions: instructions };
+        }
+        return cartItem;
+      })
+    );
+  };
+ 
+  // function that removes an order from the cart
   const removeOrder = (indexToRemove) => {
     setCart(cart.filter((_, index) => index !== indexToRemove));
   };
@@ -77,7 +78,6 @@ export default function Menu() {
         return cartItem;
       })
     );
-
   };
   // This function decrease the quantity in the cart as long as the quantity is over 1
   const decreaseQuantity = (indexToIncrease) => {
@@ -90,19 +90,19 @@ export default function Menu() {
       })
     );
   };
-// This function changes the size of an order.
+  // This function changes the size of an order.
   const handleSizeChange = (indexToChange, newSize) => {
     console.log("handled");
     setCart(
       cart.map((cartItem, index) => {
-        if (index === indexToChange && newSize =="small") {
+        if (index === indexToChange && newSize == "small") {
           return { ...cartItem, size: newSize, price: cartItem.smallPrice };
         }
-        if (index === indexToChange && newSize =="medium") {
+        if (index === indexToChange && newSize == "medium") {
           return { ...cartItem, size: newSize, price: cartItem.mediumPrice };
         }
-        if (index === indexToChange && newSize =="large") {
-          return { ...cartItem, size: newSize, price: cartItem.largePrice};
+        if (index === indexToChange && newSize == "large") {
+          return { ...cartItem, size: newSize, price: cartItem.largePrice };
         }
         return cartItem;
       })
@@ -110,6 +110,49 @@ export default function Menu() {
     console.log(cart);
   };
 
+  function handleChangeTable(eventValue) {
+    let newValue = eventValue;
+    console.log(newValue);
+    setTable(newValue);
+
+    console.log(table);
+  }
+
+  async function handleCheckout() {
+    if (table == "no-table") {
+      alert("Please select a table number");
+      return;
+    }
+    let orderObject = {};
+    orderObject.tableNumber = table;
+    orderObject.items = cart;
+    if (token) {
+      orderObject.customerName = jwtDecode(token).firstName;
+      orderObject.customerId = jwtDecode(token).userId;
+    }
+    console.log(orderObject);
+
+    let orderJSON = JSON.stringify(orderObject);
+
+    console.log(orderJSON);
+
+    const myHeaders = new Headers();
+
+    myHeaders.append("Content-Type", "application/json");
+
+    const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/order`, {
+      method: "POST",
+      body: orderJSON,
+      headers: myHeaders,
+    });
+    const responseData = await response.json();
+    console.log(responseData);
+    if (response.status =="201") {
+      setCart([])
+    } else {
+      alert("Oh no something went wrong! Your Order was not processed! Please call a member of staff.");
+    }
+  }
 
   // Each button in the menu filter calls this function to update the menu by category
   async function handleCategoryFilter(category) {
@@ -154,10 +197,14 @@ export default function Menu() {
         <CartModal
           toggleCartModal={toggleCartModal}
           cart={cart}
+          table={table}
           removeOrder={removeOrder}
           increaseQuantity={increaseQuantity}
           decreaseQuantity={decreaseQuantity}
           handleSizeChange={handleSizeChange}
+          updateSpecialInstructions={updateSpecialInstructions}
+          handleChangeTable={handleChangeTable}
+          handleCheckout={handleCheckout}
         ></CartModal>
       )}
       {token ? (
@@ -169,18 +216,21 @@ export default function Menu() {
         <CartButton toggleCartModal={toggleCartModal}></CartButton>
       </div>
       <MenuFilter handleCategoryFilter={handleCategoryFilter}></MenuFilter>
-
-      <div className="menu-card-container">
-        {menuItems.map((item) => {
-          return (
-            <MenuItemCard
-              key={item._id}
-              menuItemObj={item}
-              addOrder={addOrder}
-            ></MenuItemCard>
-          );
-        })}
-      </div>
+      {menuItems.length ? (
+        <div className="menu-card-container">
+          {menuItems.map((item) => {
+            return (
+              <MenuItemCard
+                key={item._id}
+                menuItemObj={item}
+                addOrder={addOrder}
+              ></MenuItemCard>
+            );
+          })}
+        </div>
+      ) : (
+        <EmptyCartMessage></EmptyCartMessage>
+      )}
     </div>
   );
 }

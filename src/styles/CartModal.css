@@ -15,7 +15,7 @@
 }
 .modal-content {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
@@ -23,9 +23,10 @@
     padding: 14px 28px;
     border-radius: 5px;
     max-width: 600px;
-    max-height: 500px;
-    min-width: 400px;
-    overflow-y: scroll;
+    max-height: 600px;
+    min-width: 280px;
+    min-height: 400px;
+    
   
 }
 
@@ -34,4 +35,30 @@
     top: 10px;
     right: 10px;
     padding: 5px 7px;
+}
+
+.cart-item-container {
+    padding: 5px;
+    overflow-y: scroll;
+    max-height: 400px;
+
+}
+
+.checkout-button {
+    background-color: black;
+    border: none;
+    border-radius: 2px;
+    width: 90px;
+    height: 30px;
+    margin: 30px;
+}
+
+.checkout-button:hover {
+    background-color: #8b4513;
+
+}
+
+.table-select {
+    color: black;
+    background-color: white;
 }

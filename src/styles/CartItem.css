@@ -1,15 +1,29 @@
 
 
-.cart-item-container {
+.cart-item {
     display: flex;
     gap: 30px;
 }
 
-.cart-item-container p {
+.cart-item textarea {
+    background-color: white;
+    font-family: arial, sans-serif;
+    font-size: 0.8rem;
+    resize: none;
+    max-width: 200px;
+    
+}
+
+.cart-item select {
+    color: black;
+    background-color: white;
+}
+
+.cart-item p {
     font-size: 0.8rem;
 }
 
-.cart-item-container button {
+.cart-item button {
     padding: 2px;
 
 }
@@ -20,11 +34,11 @@
     gap: 10px;
 }
 
-.cart-item-container h5 {
+.cart-item h5 {
     margin: 0;
 }
 
-.cart-item-container img {
+.cart-item img {
 max-width: 100px;
 border-radius: 10px;
 }
