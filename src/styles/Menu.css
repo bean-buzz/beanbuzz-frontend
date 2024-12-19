@@ -28,3 +28,12 @@ button:hover{
   cursor: pointer;
 }
 
+.empty-cart-message-container img {
+  height: 400px;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+.empty-cart-message-container {
+  padding: 50px;
+}

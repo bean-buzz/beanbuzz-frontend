@@ -14,6 +14,7 @@ export default function MenuFilter({ handleCategoryFilter }) {
       <button onClick={() => handleCategoryFilter("smoothie")}>
         Smoothies
       </button>
+      <button onClick={() => handleCategoryFilter("empty")}>Empty</button>
     </div>
   );
 }
