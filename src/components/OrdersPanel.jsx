@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import OrderModal from "./OrderModal";
 import "../styles/OrdersPanel.css";
 
-export default function OrdersPanel() {
+export default function OrdersPanel({ role, name }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,16 +16,30 @@ export default function OrdersPanel() {
     const fetchOrders = async () => {
       try {
         const currentJwt = localStorage.getItem("jwt");
-        const response = await fetch(
-          `${import.meta.env.VITE_DATABASE_URL}/order`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${currentJwt}`,
-            },
-          }
-        );
+        let url;
+
+        // Determine the API endpoint based on the user type
+        if (role === "admin" || role === "staff") {
+          url = `${import.meta.env.VITE_DATABASE_URL}/order`;
+        } else if (role === "user" && name) {
+          const encodedName = encodeURIComponent(name);
+
+          url = `${
+            import.meta.env.VITE_DATABASE_URL
+          }/order/user-history/${encodedName}`;
+
+          console.log("Request URL:", url);
+        } else {
+          throw new Error("Invalid user type or missing name");
+        }
+
+        const response = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${currentJwt}`,
+          },
+        });
 
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
@@ -43,7 +57,7 @@ export default function OrdersPanel() {
     };
 
     fetchOrders();
-  }, [isModalOpen]);
+  }, [isModalOpen, role, name]);
 
   // Toggle the selected orders modal
   const toggleModal = (order = null) => {
