@@ -15,6 +15,16 @@ export default function Menu() {
   const [cart, setCart] = useState([]);
   const [table, setTable] = useState("no-table");
 
+
+
+  
+  if(displayModal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+
+
   // function attached to cart button which toggles displaying the cart modal.
   function toggleCartModal() {
     setDisplayModal((previousState) => !previousState);
