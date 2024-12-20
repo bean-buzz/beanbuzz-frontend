@@ -15,6 +15,15 @@ export default function Menu() {
   const [cart, setCart] = useState([]);
   const [table, setTable] = useState("no-table");
 
+
+  
+  if(displayModal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+
+
   // function attached to cart button which toggles displaying the cart modal.
   function toggleCartModal() {
     setDisplayModal((previousState) => !previousState);
@@ -119,17 +128,17 @@ export default function Menu() {
   }
 
   async function handleCheckout() {
-    if (table == "no-table") {
-      alert("Please select a table number");
-      return;
-    }
     let orderObject = {};
-    orderObject.tableNumber = table;
-    orderObject.items = cart;
+    
+    if (table !== "no-table") {
+      orderObject.tableNumber = table;
+    }
     if (token) {
       orderObject.customerName = jwtDecode(token).firstName;
       orderObject.customerId = jwtDecode(token).userId;
     }
+    orderObject.items = cart;
+    
     console.log(orderObject);
 
     let orderJSON = JSON.stringify(orderObject);
@@ -149,6 +158,7 @@ export default function Menu() {
     console.log(responseData);
     if (response.status =="201") {
       setCart([])
+      alert("Your order has been made!")
     } else {
       alert("Oh no something went wrong! Your Order was not processed! Please call a member of staff.");
     }
@@ -231,6 +241,7 @@ export default function Menu() {
       ) : (
         <EmptyCartMessage></EmptyCartMessage>
       )}
+      <button onClick={()=>console.log(cart)}>console log cart test button</button>
     </div>
   );
 }
