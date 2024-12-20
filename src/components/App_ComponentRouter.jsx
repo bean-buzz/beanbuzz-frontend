@@ -20,14 +20,13 @@ import Dashboard from "../pages/Dashboard.jsx";
 
 // Import admin-specific components
 import MenuItems from "../pages/MenuItems.jsx";
-import Orders from "../pages/Orders.jsx";
+import KitchenOrders from "../pages/KitchenOrders.jsx";
 import Payments from "../pages/Payments.jsx";
 import Reviews from "../pages/Reviews.jsx";
 
 // Import User-specific components
 import MyProfile from "../pages/MyProfile.jsx";
 import UserReview from "../pages/UserReview.jsx";
-import UserOrder from "../pages/UserOrder.jsx";
 
 function App() {
   return (
@@ -48,7 +47,7 @@ function App() {
             {/* User-specific Routes */}
             <Route path="/user/profile" element={<MyProfile />} />
             <Route path="/user/review" element={<UserReview />} />
-            <Route path="/user/orders" element={<UserOrder />} />
+            <Route path="/user/orders" element={<KitchenOrders />} />
           </Route>
 
           {/* Protected Routes */}
@@ -64,7 +63,7 @@ function App() {
             <Route element={<DashboardLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/items" element={<MenuItems />} />
-              <Route path="/dashboard/orders" element={<Orders />} />
+              <Route path="/dashboard/orders" element={<KitchenOrders />} />
               <Route path="/dashboard/payments" element={<Payments />} />
               <Route path="/dashboard/reviews" element={<Reviews />} />
             </Route>
