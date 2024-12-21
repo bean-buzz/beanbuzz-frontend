@@ -19,6 +19,11 @@ export default function CartModal({
     }
   };
 
+  let totalCartPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className="modal">
       <div className="overlay" onClick={handleOverlayClick}></div>
@@ -80,6 +85,7 @@ export default function CartModal({
             Checkout
           </button>
         ) : null}
+        <p>Total: ${totalCartPrice}</p>
       </div>
     </div>
   );
