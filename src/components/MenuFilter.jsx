@@ -1,9 +1,8 @@
 import "../styles/MenuFilter.css";
-
-import React from "react";
 export default function MenuFilter({ handleCategoryFilter }) {
   return (
     <div className="menu-filter">
+      <button onClick={() => handleCategoryFilter("")}>All Menu Items</button>
       <button onClick={() => handleCategoryFilter("lunch")}>Lunch</button>
       <button onClick={() => handleCategoryFilter("breakfast")}>
         Breakfast
@@ -14,7 +13,7 @@ export default function MenuFilter({ handleCategoryFilter }) {
       <button onClick={() => handleCategoryFilter("smoothie")}>
         Smoothies
       </button>
-      <button onClick={() => handleCategoryFilter("empty")}>Empty</button>
+      
     </div>
   );
 }
