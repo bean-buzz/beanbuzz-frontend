@@ -145,10 +145,6 @@ textarea {
     max-width: 100%;
   }
 
-  h2 {
-    font-size: 1.5rem;
-  }
-
   input[type="text"],
   textarea {
     padding: 10px;

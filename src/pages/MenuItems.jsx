@@ -34,18 +34,20 @@ export default function MenuItems() {
 
   return (
     <div className="items-container">
-      <div className="header-container">
-        <p className="items-text">Menu Items</p>
-        {role === "admin" && (
-          <button
-            className="add-item-btn"
-            onClick={() => setView(view === "menu" ? "create" : "menu")}
-          >
-            {view === "menu" ? "Add Menu Item" : "Back to Menu"}
-          </button>
-        )}
+      <div className="menu-items-container">
+        <h2>Menu Items</h2>
+        <div className="header-container">
+          {role === "admin" && (
+            <button
+              className="add-item-btn"
+              onClick={() => setView(view === "menu" ? "create" : "menu")}
+            >
+              {view === "menu" ? "Add Menu Item" : "Back to Menu"}
+            </button>
+          )}
+        </div>
+        {view === "menu" ? <MenuItemsPanel role={role} /> : <CreateMenuItem />}
       </div>
-      {view === "menu" ? <MenuItemsPanel role={role} /> : <CreateMenuItem />}
     </div>
   );
 }
