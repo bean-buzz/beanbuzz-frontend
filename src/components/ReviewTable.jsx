@@ -10,7 +10,7 @@ export default function ReviewTable() {
   useEffect(() => {
     // Fetch reviews data when the component mounts
     axios
-      .get("http://localhost:8080/reviews")
+      .get(`${import.meta.env.VITE_DATABASE_URL}/reviews`)
       .then((response) => {
         setReviews(response.data.reviews); // Extract reviews array
         setLoading(false);
@@ -38,7 +38,7 @@ export default function ReviewTable() {
 
       // Send PATCH request to update the review
       const response = await axios.patch(
-        `http://localhost:8080/reviews/${id}`,
+        `${import.meta.env.VITE_DATABASE_URL}/reviews/${id}`,
         updatedReview,
         {
           headers: {

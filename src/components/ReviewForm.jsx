@@ -43,7 +43,7 @@ export default function ReviewForm() {
     console.log("Submitting Review Data:", reviewData);
 
     axios
-      .post(`http://localhost:8080/reviews`, reviewData, {
+      .post(`${import.meta.env.VITE_DATABASE_URL}/reviews`, reviewData, {
         headers: {
           "Content-Type": "application/json",
         },
