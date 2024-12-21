@@ -78,6 +78,7 @@ export default function ReviewForm() {
                 type="text"
                 id="userName"
                 name="userName"
+                className="review-input"
                 value={createReview.userName}
                 onChange={handleReviewChange}
                 required
@@ -106,6 +107,7 @@ export default function ReviewForm() {
               <textarea
                 id="review-message"
                 name="reviewMessage"
+                className="review-textarea"
                 value={createReview.reviewMessage}
                 onChange={handleReviewChange}
                 required

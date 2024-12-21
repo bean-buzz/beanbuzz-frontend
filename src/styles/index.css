@@ -36,9 +36,17 @@
 }
 
 body {
-  text-align: center;
-  background-color: white;
-  color: black;
-  /* min-height: 200vh; */
-  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 200vh;
 }
