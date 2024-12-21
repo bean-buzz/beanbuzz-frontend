@@ -109,12 +109,6 @@ export default function Navbar() {
               </h3>
               {showDropdown && (
                 <div className="dropdown-menu active">
-                  <NavLink
-                    to="/user/profile"
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                  >
-                    My Profile
-                  </NavLink>
                   <div className="dropdown-divider"></div>
                   <NavLink
                     to="/user/review"
