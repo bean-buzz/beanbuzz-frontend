@@ -29,7 +29,6 @@ export default function ReviewTable() {
   // Function to handle review status update
   const handleStatusUpdate = async (id, status) => {
     try {
-      console.log("GETING REVIEWS");
       // Find the review to be updated
       const reviewToUpdate = reviews.find((review) => review._id === id);
 

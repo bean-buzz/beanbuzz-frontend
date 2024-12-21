@@ -64,16 +64,13 @@ export default function Menu() {
     } else {
       orderObj.price = menuItemObj.defaultPrice;
     }
-    console.log(orderObj);
     setCart([...cart, orderObj]);
-    console.log(cart);
   }
 
   const updateSpecialInstructions = (indexToChange, instructions) => {
     setCart(
       cart.map((cartItem, index) => {
         if (index === indexToChange) {
-          console.log("instructions changed");
           return { ...cartItem, specialInstructions: instructions };
         }
         return cartItem;
@@ -112,7 +109,6 @@ export default function Menu() {
 
   // This function changes the size of an order.
   const handleSizeChange = (indexToChange, newSize) => {
-    console.log("handled");
     setCart(
       cart.map((cartItem, index) => {
         if (index === indexToChange && newSize == "small") {
@@ -127,15 +123,11 @@ export default function Menu() {
         return cartItem;
       })
     );
-    console.log(cart);
   };
 
   function handleChangeTable(eventValue) {
     let newValue = eventValue;
-    console.log(newValue);
     setTable(newValue);
-
-    console.log(table);
   }
 
   async function handleCheckout() {

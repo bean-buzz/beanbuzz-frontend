@@ -65,6 +65,38 @@ export default function MenuItemsPanel({ role }) {
   if (loading) return <div className="loading">Loading menu items...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 
+  const handleToggleAvailability = async (itemId, currentStatus) => {
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_DATABASE_URL
+        }/menu/item/${itemId}/toggle-availability`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${currentJwt}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Error toggling availability: ${response.statusText}`);
+      }
+
+      const updatedItem = await response.json();
+
+      // Update the item in the state
+      setMenuItems((prevItems) =>
+        prevItems.map((item) =>
+          item._id === updatedItem._id ? updatedItem : item
+        )
+      );
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <table className="menu-items-table">
       <thead>
@@ -86,11 +118,16 @@ export default function MenuItemsPanel({ role }) {
             <td>{item.category}</td>
             <td>{item.description}</td>
             <td>
-              {item.isAvailable ? (
-                <span className="status-badge available">Available</span>
-              ) : (
-                <span className="status-badge unavailable">Unavailable</span>
-              )}
+              <button
+                className={`status-btn ${
+                  item.isAvailable ? "available" : "unavailable"
+                }`}
+                onClick={() =>
+                  handleToggleAvailability(item._id, item.isAvailable)
+                }
+              >
+                {item.isAvailable ? "Available" : "Unavailable"}
+              </button>
             </td>
 
             <td>

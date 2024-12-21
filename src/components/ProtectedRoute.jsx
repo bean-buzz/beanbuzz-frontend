@@ -30,7 +30,6 @@ export default function ProtectedRoute({ children }) {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Protected data:", data.message);
       } else {
         setError("Token is invalid or expired. Please sign in again.");
         localStorage.removeItem("jwt");

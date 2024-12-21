@@ -12,18 +12,15 @@ export default function OrdersPanel({ role, email }) {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const currentJwt = localStorage.getItem("jwt");
-
   useEffect(() => {
     const fetchOrders = async () => {
       try {
+        const currentJwt = localStorage.getItem("jwt");
         if (!currentJwt) {
           throw new Error("JWT token is missing");
         }
 
         let url;
-
-        console.log(`Email ${email} and role ${role}`);
 
         // Determine the API endpoint based on the user type
         if (role === "admin" || role === "staff") {
@@ -66,31 +63,6 @@ export default function OrdersPanel({ role, email }) {
     setIsModalOpen(!isModalOpen);
   };
 
-  // Handle removing an order
-  const handleRemoveOrder = async (orderId) => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_DATABASE_URL}/order/${orderId}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${currentJwt}`,
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`Error removing order: ${response.statusText}`);
-      }
-
-      // Remove the deleted order from the list
-      setOrders(orders.filter((order) => order._id !== orderId));
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
   if (loading) return <div>Loading orders...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -106,7 +78,7 @@ export default function OrdersPanel({ role, email }) {
             <th>STATUS</th>
             <th>TOTAL</th>
             {/* Hide actions column for users */}
-            {role !== "user" && <th>ACTIONS</th>}
+            {role !== "user" && <th>ACTIONS</th>}{" "}
           </tr>
         </thead>
 
@@ -146,14 +118,6 @@ export default function OrdersPanel({ role, email }) {
                   >
                     View Order
                   </button>
-                  {role === "admin" && (
-                    <button
-                      onClick={() => handleRemoveOrder(order._id)}
-                      className="remove-order-btn"
-                    >
-                      Remove
-                    </button>
-                  )}
                 </td>
               )}
             </tr>

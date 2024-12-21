@@ -43,7 +43,6 @@ export default function DashboardLayout() {
 
       setSideitems(items);
 
-      console.log(sideitems);
     } else {
       console.error("No token found");
     }
