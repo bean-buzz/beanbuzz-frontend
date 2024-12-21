@@ -1,0 +1,151 @@
+.create-menu-item-container {
+  padding: 20px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 80%;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.menuitem-input {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  border: 1px solid var(--text-color);
+}
+
+.create-menu-item-container h1 {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.create-menu-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create-menu-item-form input,
+.create-menu-item-form textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-menu-item-form input:focus,
+.create-menu-item-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.create-menu-item-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.availability-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.dietary-info-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dietary-info-checkbox label {
+  font-size: 14px;
+  color: #333;
+}
+
+.dietary-info-checkbox input {
+  margin-left: 5px;
+  background-color: var(--input-bg-color);
+}
+
+.file-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-upload-section input[type="file"] {
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.file-upload-section button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.file-upload-section button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.file-upload-section button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.upload-status {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: 600;
+}
+
+.create-menu-item-form button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.create-menu-item-form button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.image-upload-status h4 {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: 600;
+}
