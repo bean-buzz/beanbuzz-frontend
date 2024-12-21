@@ -1,72 +1,65 @@
-
-
 .menu-item-card img {
-    max-width: 100%;
-    min-width: 100%;
-    max-height: 225px;
-    min-height: 225px;
-    object-fit: cover;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 225px;
+  min-height: 225px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-
 .menu-item-card {
-    max-width: 350px;
-    min-width: 350px;
-    margin: 3rem;
-    border-radius: 15px;
-    background-color: beige;
-    padding-bottom: 2rem;
+  max-width: 350px;
+  min-width: 350px;
+  margin: 3rem;
+  border-radius: 15px;
+  background-color: beige;
+  padding-bottom: 2rem;
 }
 
 .menu-item-card p {
-    margin: 1em;
+  margin: 1em;
 }
 
-
-.dietary-tag-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
+.dietary-tag-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .dietary-tag {
-    
-    padding: 0.3rem;
-    margin: 0.5rem;
-    border-radius: 5px;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  border-radius: 5px;
 }
 
 .vegetarian-tag {
-    background-color: lightgreen;
+  background-color: lightgreen;
 }
 
 .gluten-free-tag {
-    background-color: gold;
+  background-color: gold;
 }
 
 .halal-tag {
-    background-color: rgb(130, 255, 226);
+  background-color: rgb(130, 255, 226);
 }
 .vegan-tag {
- background-color: green;
+  background-color: green;
 }
 
 .dairy-free-tag {
-background-color: rgb(255, 227, 209);
+  background-color: rgb(255, 227, 209);
 }
 
 .kosher-tag {
- background-color: coral;
+  background-color: coral;
 }
 .beef-free-tag {
- background-color: plum;
+  background-color: plum;
 }
 
-.unavailable-message{
-    color: rgb(255, 79, 60);
-    font-size: 0.9rem;
-
+.unavailable-message {
+  color: rgb(255, 79, 60);
+  font-size: 0.9rem;
 }

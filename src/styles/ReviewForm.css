@@ -56,20 +56,37 @@ label {
 }
 
 /* Form input fields */
-input[type="text"],
-textarea {
+.review-input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ddd;
+  border: 1px solid var(--input-text-color);
   border-radius: 4px;
   font-size: 1rem;
   box-sizing: border-box;
-  color: black;
+  color: var(--input-text-color);
 }
 
-input[type="text"]:focus,
-textarea:focus {
+.review-input:focus {
+  outline: none;
+}
+
+/* Styling for textarea */
+.review-textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid var(--input-text-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: var(--input-text-color);
+  background-color: var(--bg-color);
+  resize: vertical;
+  min-height: 100px;
+}
+
+.review-textarea:focus {
   outline: none;
 }
 

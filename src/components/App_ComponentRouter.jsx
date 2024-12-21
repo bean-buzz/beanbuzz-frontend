@@ -70,8 +70,8 @@ function App() {
           </Route>
         </Routes>
 
-        {/* This is our custom footer! */}
-        <Footer />
+        {/* This is our custom footer!
+        <Footer /> */}
       </BrowserRouter>
     </div>
   );
