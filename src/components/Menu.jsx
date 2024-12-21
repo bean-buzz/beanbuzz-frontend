@@ -14,8 +14,17 @@ import EmptyCartMessage from "./EmptyCartMessage";
 export default function Menu() {
   const [menuItems, setMenuItems] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    // Initialise cart from localStorage if available
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
   const [table, setTable] = useState("no-table");
+
+  // Update localStorage whenever the cart changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   // If modal is being displayed, scroll on body of website will be disabled
   if (displayModal) {
@@ -88,6 +97,7 @@ export default function Menu() {
       })
     );
   };
+
   // This function decrease the quantity in the cart as long as the quantity is over 1
   const decreaseQuantity = (indexToIncrease) => {
     setCart(
@@ -99,6 +109,7 @@ export default function Menu() {
       })
     );
   };
+
   // This function changes the size of an order.
   const handleSizeChange = (indexToChange, newSize) => {
     console.log("handled");
@@ -128,44 +139,31 @@ export default function Menu() {
   }
 
   async function handleCheckout() {
-    let orderObject = {};
+    let orderObject = {
+      tableNumber: table !== "no-table" ? table : undefined,
+      items: cart,
+    };
 
-    if (table !== "no-table") {
-      orderObject.tableNumber = table;
-    }
-
+    const token = localStorage.getItem("jwt");
     if (token) {
-      orderObject.customerName = jwtDecode(token).firstName;
-      orderObject.customerEmail = jwtDecode(token).email;
-      orderObject.customerId = jwtDecode(token).userId;
+      const decoded = jwtDecode(token);
+      orderObject.customerName = decoded.firstName;
+      orderObject.customerEmail = decoded.email;
+      orderObject.customerId = decoded.userId;
     }
     orderObject.items = cart;
 
-    console.log(orderObject);
-
-    let orderJSON = JSON.stringify(orderObject);
-
-    console.log(orderJSON);
-
-    const myHeaders = new Headers();
-
-    myHeaders.append("Content-Type", "application/json");
-
     const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/order`, {
       method: "POST",
-      body: orderJSON,
-      headers: myHeaders,
+      body: JSON.stringify(orderObject),
+      headers: { "Content-Type": "application/json" },
     });
+
     const responseData = await response.json();
-    console.log(responseData);
-    if (response.status == "201") {
+    if (response.status === 201) {
       setCart([]);
       toggleCartModal();
-      Toast().fire({
-        icon: "success",
-        title: "Order Created!",
-      });
-      // alert("Your order has been made!");
+      Toast().fire({ icon: "success", title: "Order Created!" });
     } else {
       Toast().fire({
         icon: "error",
@@ -208,8 +206,6 @@ export default function Menu() {
     }
     fetchMenuItemData();
   }, []);
-
-  console.log(menuItems);
 
   return (
     <div>
