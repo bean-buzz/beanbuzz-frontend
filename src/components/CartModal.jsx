@@ -85,7 +85,8 @@ export default function CartModal({
             Checkout
           </button>
         ) : null}
-        <p>Total: ${totalCartPrice}</p>
+        {cart.length? <p>Total: ${totalCartPrice}</p>: null}
+        
       </div>
     </div>
   );
