@@ -4,8 +4,6 @@ import MenuFilter from "./MenuFilter";
 
 import Toast from "./Toast";
 
-
-
 import "../styles/Menu.css";
 import CartButton from "./CartButton";
 import CartModal from "./CartModal";
@@ -19,6 +17,7 @@ export default function Menu() {
   const [cart, setCart] = useState([]);
   const [table, setTable] = useState("no-table");
 
+  // If modal is being displayed, scroll on body of website will be disabled
   if (displayModal) {
     document.body.classList.add("active-modal");
   } else {
@@ -165,7 +164,7 @@ export default function Menu() {
       Toast().fire({
         icon: "success",
         title: "Order Created!",
-      })
+      });
       // alert("Your order has been made!");
     } else {
       Toast().fire({
@@ -233,9 +232,16 @@ export default function Menu() {
       ) : (
         <h2>What can we get for you?</h2>
       )}
-      <div className="cart-button-container">
-        <CartButton cart={cart} toggleCartModal={toggleCartModal}></CartButton>
-      </div>
+
+      {!displayModal ? (
+        <div className="cart-button-container">
+          <CartButton
+            cart={cart}
+            toggleCartModal={toggleCartModal}
+          ></CartButton>
+        </div>
+      ) : null}
+
       <MenuFilter handleCategoryFilter={handleCategoryFilter}></MenuFilter>
       {menuItems.length ? (
         <div className="menu-card-container">
