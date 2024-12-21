@@ -31,7 +31,6 @@ export default function UploadImage() {
 
       // Get the URL of the uploaded file
       const fileUrl = parseFile.url();
-      console.log("File URL:", fileUrl);
 
       // Create a new Parse object (MenuItemImage)
       const MenuItemImage = Parse.Object.extend("menuitem_image_db");

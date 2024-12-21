@@ -31,8 +31,7 @@ export default function RegisterForm({ toggleAuthMode }) {
     e.preventDefault();
     setIsLoading(true);
     setStatus("");
-
-    console.log(`connecting: ${import.meta.env.VITE_DATABASE_URL}`);
+    
     try {
       const response = await fetch(
         `${import.meta.env.VITE_DATABASE_URL}/register`,

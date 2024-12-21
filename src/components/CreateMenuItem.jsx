@@ -144,11 +144,6 @@ export default function CreateMenuItem() {
 
       const data = await response.json();
 
-      Toast().fire({
-        icon: "success",
-        title: "Menu item created",
-      });
-
       setMenuItem({
         itemName: "",
         category: "",
@@ -174,6 +169,11 @@ export default function CreateMenuItem() {
       });
       setImage(null);
       setUploadStatus("");
+
+      Toast().fire({
+        icon: "success",
+        title: "Menu item created",
+      });
     } catch (err) {
       Toast().fire({
         icon: "error",

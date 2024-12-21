@@ -50,9 +50,9 @@ export default function LoginForm({ toggleAuthMode }) {
 
         // Navigate based on the user role
         if (userRole === "admin" || userRole === "staff") {
-          navigate("/dashboard"); // Redirect to dashboard page
+          navigate("/dashboard/orders");
         } else if (userRole === "user") {
-          navigate("/"); // Redirect to user page
+          navigate("/");
         } else {
           setStatus("Unknown role. Please contact support.");
         }

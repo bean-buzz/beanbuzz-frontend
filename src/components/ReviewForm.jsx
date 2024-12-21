@@ -27,8 +27,6 @@ export default function ReviewForm() {
     });
   };
 
-  console.log(createReview);
-
   const handleCreateReviewSubmit = (e) => {
     e.preventDefault();
 
@@ -47,7 +45,6 @@ export default function ReviewForm() {
         },
       })
       .then((res) => {
-        console.log(res.data);
         Toast().fire({
           icon: "success",
           title: "Review created",

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/OrderModal.css";
 
+import Toast from "./Toast";
+
 import { jwtDecode } from "jwt-decode";
 
 export default function OrderModal({ isOpen, toggleModal, orderId }) {
@@ -38,6 +40,10 @@ export default function OrderModal({ isOpen, toggleModal, orderId }) {
         );
 
         if (!response.ok) {
+          Toast().fire({
+            icon: "error",
+            title: "Failed to fetch order",
+          });
           throw new Error(`Error: ${response.statusText}`);
         }
 
@@ -45,6 +51,10 @@ export default function OrderModal({ isOpen, toggleModal, orderId }) {
         setOrder(data);
         setOrderUpdated(false);
       } catch (err) {
+        Toast().fire({
+          icon: "error",
+          title: "Failed to fetch order",
+        });
         setError(err.message);
       } finally {
         setLoading(false);
@@ -115,6 +125,10 @@ export default function OrderModal({ isOpen, toggleModal, orderId }) {
       );
 
       if (!response.ok) {
+        Toast().fire({
+          icon: "error",
+          title: "Error updating the order",
+        });
         throw new Error("Error updating the order");
       }
 
@@ -122,9 +136,16 @@ export default function OrderModal({ isOpen, toggleModal, orderId }) {
       setOrder(data);
       setOrderUpdated(true);
       toggleModal();
+
+      Toast().fire({
+        icon: "success",
+        title: "Order updated successfully",
+      });
     } catch (error) {
-      console.error("Error updating order:", error);
-      alert("There was an error updating the order.");
+      Toast().fire({
+        icon: "error",
+        title: "Error updating the order",
+      });
     }
   };
 
