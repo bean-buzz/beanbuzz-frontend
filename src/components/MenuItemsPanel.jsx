@@ -66,57 +66,55 @@ export default function MenuItemsPanel({ role }) {
   if (error) return <div className="error">Error: {error}</div>;
 
   return (
-    <div className="menu-items-container">
-      <table className="menu-items-table">
-        <thead>
-          <tr>
-            <th>ITEM NAME</th>
-            <th>CATEGORY</th>
-            <th>DESCRIPTION</th>
-            <th>AVAILABILITY</th>
-            <th>IMAGE</th>
-            {/* Only admins can see actions */}
-            {role === "admin" && <th>ACTIONS</th>}{" "}
-          </tr>
-        </thead>
+    <table className="menu-items-table">
+      <thead>
+        <tr>
+          <th>ITEM NAME</th>
+          <th>CATEGORY</th>
+          <th>DESCRIPTION</th>
+          <th>AVAILABILITY</th>
+          <th>IMAGE</th>
+          {/* Only admins can see actions */}
+          {role === "admin" && <th>ACTIONS</th>}{" "}
+        </tr>
+      </thead>
 
-        <tbody>
-          {menuItems.map((item) => (
-            <tr key={item._id}>
-              <td>{item.itemName}</td>
-              <td>{item.category}</td>
-              <td>{item.description}</td>
-              <td>
-                {item.isAvailable ? (
-                  <span className="status-badge available">Available</span>
-                ) : (
-                  <span className="status-badge unavailable">Unavailable</span>
-                )}
-              </td>
-
-              <td>
-                {item.imageUrl && (
-                  <img
-                    src={item.imageUrl}
-                    alt={item.itemName}
-                    className="item-image"
-                  />
-                )}
-              </td>
-              {role === "admin" && (
-                <td>
-                  <button
-                    className="remove-item-btn"
-                    onClick={() => handleRemoveItem(item._id)}
-                  >
-                    Remove
-                  </button>
-                </td>
+      <tbody>
+        {menuItems.map((item) => (
+          <tr key={item._id}>
+            <td>{item.itemName}</td>
+            <td>{item.category}</td>
+            <td>{item.description}</td>
+            <td>
+              {item.isAvailable ? (
+                <span className="status-badge available">Available</span>
+              ) : (
+                <span className="status-badge unavailable">Unavailable</span>
               )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+            </td>
+
+            <td>
+              {item.imageUrl && (
+                <img
+                  src={item.imageUrl}
+                  alt={item.itemName}
+                  className="item-image"
+                />
+              )}
+            </td>
+            {role === "admin" && (
+              <td>
+                <button
+                  className="remove-item-btn"
+                  onClick={() => handleRemoveItem(item._id)}
+                >
+                  Remove
+                </button>
+              </td>
+            )}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }

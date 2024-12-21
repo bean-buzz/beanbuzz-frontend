@@ -13,8 +13,7 @@ export default function KitchenOrders() {
 
   return (
     <div className="orders-container">
-      <p className="orders-text">Orders</p>
-      <OrdersPanel role={role} email={email} />
+      <OrdersPanel role={role} name={email} />
     </div>
   );
 }

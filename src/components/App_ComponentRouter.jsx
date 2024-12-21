@@ -64,7 +64,6 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/items" element={<MenuItems />} />
               <Route path="/dashboard/orders" element={<KitchenOrders />} />
-              <Route path="/dashboard/payments" element={<Payments />} />
               <Route path="/dashboard/reviews" element={<Reviews />} />
             </Route>
           </Route>
