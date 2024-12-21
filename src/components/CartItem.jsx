@@ -17,8 +17,10 @@ export default function CartItem({
       <span>
         <span className="cart-item-name-container">
           <h5>{cartItemObj.itemName}</h5>
+
           {cartItemObj.size ? (
             <select
+              className="cart-item-size"
               value={cartItemObj.size}
               onChange={(event) => handleSizeChange(index, event.target.value)}
             >
@@ -51,10 +53,10 @@ export default function CartItem({
               removeOrder(index);
             }}
           >
-            <img src="./bin-x.svg" alt="" />
+            <img src="./brown-bin.svg" alt="" />
           </button>
         </span>
-        <p>Please special requirements below</p>
+        <p>Special Requirements</p>
         <textarea
           value={
             cartItemObj.specialInstructions

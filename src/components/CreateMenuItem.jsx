@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Parse from "parse";
 import "../utils/parseConfig";
 
+import Toast from "./Toast";
+
 import "../styles/CreateMenuItem.css";
 
 export default function CreateMenuItem() {
@@ -65,7 +67,10 @@ export default function CreateMenuItem() {
 
   const handleUploadImage = async () => {
     if (!image) {
-      alert("Please select an image");
+      Toast().fire({
+        icon: "error",
+        title: "Please select an image",
+      });
       return;
     }
 
@@ -80,9 +85,18 @@ export default function CreateMenuItem() {
       setUploadStatus("Uploaded successfully");
       setUploadButtonText("Upload Successfully");
       setButtonDisabled(true);
+
+      Toast().fire({
+        icon: "success",
+        title: "Image Uploaded",
+      });
     } catch (err) {
       console.error("Error uploading image:", err);
       setError("Failed to upload image");
+      Toast().fire({
+        icon: "error",
+        title: "Error Uploading Image",
+      });
     } finally {
       setLoading(false);
     }
@@ -99,7 +113,10 @@ export default function CreateMenuItem() {
     event.preventDefault();
 
     if (!menuItem.imageUrl) {
-      alert("Please upload an image before submitting.");
+      Toast().fire({
+        icon: "error",
+        title: "Upload an image before submitting",
+      });
       return;
     }
 
@@ -118,12 +135,20 @@ export default function CreateMenuItem() {
       );
 
       if (!response.ok) {
+        Toast().fire({
+          icon: "error",
+          title: "Failed to create menu item",
+        });
         throw new Error("Failed to create menu item");
       }
 
       const data = await response.json();
-      alert("Menu item created successfully!");
-      console.log(data);
+
+      Toast().fire({
+        icon: "success",
+        title: "Menu item created",
+      });
+
       setMenuItem({
         itemName: "",
         category: "",
@@ -150,7 +175,10 @@ export default function CreateMenuItem() {
       setImage(null);
       setUploadStatus("");
     } catch (err) {
-      console.error("Error creating menu item:", err);
+      Toast().fire({
+        icon: "error",
+        title: "Failed to create menu item",
+      });
       setError("Failed to create menu item.");
     }
   };
@@ -254,13 +282,16 @@ export default function CreateMenuItem() {
 
         <div className="file-upload-section">
           <input type="file" onChange={handleImageChange} />
-          <button
-            type="button"
-            onClick={handleUploadImage}
-            disabled={buttonDisabled}
-          >
-            {uploadButtonText}
-          </button>
+          <div className="upload-container">
+            <button
+              type="button"
+              onClick={handleUploadImage}
+              disabled={buttonDisabled || loading}
+            >
+              {uploadButtonText}
+            </button>
+            {loading && <div className="spinner"></div>}
+          </div>
         </div>
 
         <button type="submit">Create Menu Item</button>
