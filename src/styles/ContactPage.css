@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .contact-form {
