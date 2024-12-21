@@ -67,12 +67,12 @@
   border-color: var(--input-focus-border-color);
 }
 
-.submit-btn {
+.contact-submit-btn {
   width: 100%;
   padding: 10px;
   font-size: 14px;
 
-  background-color: var(--button-bg-color0);
+  background-color: var(--button-bg-color);
   color: var(--button-text-color);
   border: none;
   border-radius: 5px;
@@ -81,7 +81,7 @@
   transition: background-color 0.3s;
 }
 
-.submit-btn:hover {
+.contact-submit-btn:hover {
   background-color: var(--button-hover-bg-color);
 }
 
@@ -92,6 +92,6 @@
 .response-message {
   font-size: 18px;
   font-weight: bold;
-  color: var(--title-color, );
+  color: var(--title-color);
   text-align: center;
 }

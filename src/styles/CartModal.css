@@ -1,84 +1,84 @@
-
 body.active-modal {
-    overflow-y: hidden;
+  overflow-y: hidden;
 }
 
-.modal, .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
 }
 
 .overlay {
-    background: rgba(99, 99, 99, 0.2);
-    backdrop-filter: blur(3px);
+  background: rgba(99, 99, 99, 0.2);
+  backdrop-filter: blur(3px);
 }
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 1.4;
-    background: #f1f1f1;
-    padding: 14px 28px;
-    border-radius: 5px;
-    max-width: 600px;
-    max-height: 600px;
-    min-width: 280px;
-    min-height: 400px;
 
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 5px;
+  max-width: 600px;
+  max-height: 600px;
+  min-width: 280px;
+  min-height: 400px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .close-modal-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 7px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
 }
 
 .cart-item-container {
-    padding: 5px;
-    overflow-y: scroll;
-    max-height: 400px;
+  padding: 5px;
+  overflow-y: scroll;
+  max-height: 400px;
 }
 .cart-item-container select {
-   max-height: 20px;
-
+  max-height: 20px;
 }
 
-
 .checkout-button {
-    background-color: black;
-    align-self: center;
-    border: none;
-    border-radius: 2px;
-    width: 90px;
-    height: 30px;
-    margin: 10px;
+  background-color: black;
+  align-self: center;
+  width: 50%;
+  margin: 10px;
+  padding: 5px;
+  font-size: 14px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .checkout-button:hover {
-    background-color: #8b4513;
-
+  background-color: var(--button-hover-bg-color);
 }
 
 .table-select {
-    color: black;
-    background-color: white;
-    margin: 10px;
-    align-self: center;
+  color: black;
+  background-color: white;
+  margin: 10px;
+  align-self: center;
 }
 
-
 @media (max-width: 903px) {
-    .modal-content {
-       max-height: 500px;
-    }
-    
+  .modal-content {
+    max-height: 500px;
   }
+}

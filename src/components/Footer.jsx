@@ -15,29 +15,6 @@ export default function Footer() {
       {/* Logo Section */}
       <div className="footer-column logo-section">
         <img src={Logo} alt="Bean Buzz Logo" className="footer-logo" />
-        <div className="social-icons">
-          <a href="https://facebook.com" className="icon">
-            <img
-              src={FacebookIcon}
-              alt="Facebook"
-              className="social-icon-image"
-            />
-          </a>
-          <a href="https://instagram.com" className="icon">
-            <img
-              src={InstagramIcon}
-              alt="Instagram"
-              className="social-icon-image"
-            />
-          </a>
-          <a href="https://twitter.com" className="icon">
-            <img
-              src={TwitterIcon}
-              alt="Twitter"
-              className="social-icon-image"
-            />
-          </a>
-        </div>
       </div>
 
       {/* Opening Hours Section */}
@@ -79,14 +56,6 @@ export default function Footer() {
       {/* Contact Section */}
       <div className="footer-column contact">
         <h4>Contact</h4>
-        <p>
-          <img src={LocationIcon} alt="icon" className="list-icon" /> No 236
-          Queens Road, Silvan VIC, Australia, 1234
-        </p>
-        <p>
-          <img src={PhoneIcon} alt="icon" className="list-icon" /> Phone: (03)
-          739847267
-        </p>
         <p>
           <img src={EmailIcon} alt="icon" className="list-icon" /> Email:{" "}
           <a href="mailto:sys.beanbuzz@gmail.com">sys.beanbuzz@gmail.com</a>

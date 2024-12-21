@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "../styles/ReviewTable.css";
 
 export default function ReviewTable() {
@@ -9,10 +8,15 @@ export default function ReviewTable() {
 
   useEffect(() => {
     // Fetch reviews data when the component mounts
-    axios
-      .get(`${import.meta.env.VITE_DATABASE_URL}/reviews`)
+    fetch(`${import.meta.env.VITE_DATABASE_URL}/reviews`)
       .then((response) => {
-        setReviews(response.data.reviews); // Extract reviews array
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setReviews(data.reviews);
         setLoading(false);
       })
       .catch((err) => {
@@ -25,6 +29,7 @@ export default function ReviewTable() {
   // Function to handle review status update
   const handleStatusUpdate = async (id, status) => {
     try {
+      console.log("GETING REVIEWS");
       // Find the review to be updated
       const reviewToUpdate = reviews.find((review) => review._id === id);
 
@@ -33,25 +38,32 @@ export default function ReviewTable() {
         userName: reviewToUpdate.userName,
         rating: reviewToUpdate.rating,
         reviewMessage: reviewToUpdate.reviewMessage,
-        reviewStatus: status, // Updated status
+        reviewStatus: status,
       };
 
       // Send PATCH request to update the review
-      const response = await axios.patch(
+      const response = await fetch(
         `${import.meta.env.VITE_DATABASE_URL}/reviews/${id}`,
-        updatedReview,
         {
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify(updatedReview),
         }
       );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
 
       // Update the local reviews state with the updated review
       setReviews((prevReviews) =>
         prevReviews.map((review) =>
           review._id === id
-            ? { ...review, reviewStatus: response.data.reviewStatus }
+            ? { ...review, reviewStatus: data.reviewStatus }
             : review
         )
       );
