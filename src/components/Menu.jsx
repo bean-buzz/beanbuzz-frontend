@@ -23,7 +23,6 @@ export default function Menu() {
     document.body.classList.remove('active-modal')
   }
 
-
   // function attached to cart button which toggles displaying the cart modal.
   function toggleCartModal() {
     setDisplayModal((previousState) => !previousState);
