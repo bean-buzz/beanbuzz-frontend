@@ -1,31 +1,46 @@
-.items-container {
+.header-container {
+  width: 100%;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  justify-content: flex-start; /* Move items to the bottom */
-  align-items: center; /* Center items horizontally */
-  font-size: 30px;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  padding: 5px;
-  min-height: 60vh; /* Set a minimum height to fill the screen */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .items-text {
-  margin-bottom: 10px; /* Add some spacing from the bottom */
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  flex: none;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .items-container {
-    font-size: 26px; /* Adjust font size for tablets */
-    font-weight: bold;
-  }
+.add-item-btn {
+  position: absolute;
+  right: 0;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-right: 20px;
 }
 
-/* Mobile Styles */
+.add-item-btn:hover {
+  background-color: #0056b3;
+}
+
 @media (max-width: 768px) {
-  .items-container {
-    font-size: 24px; /* Adjust font size for mobile */
-    font-weight: bold;
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-item-btn {
+    position: static;
+    margin-top: 10px;
   }
 }
