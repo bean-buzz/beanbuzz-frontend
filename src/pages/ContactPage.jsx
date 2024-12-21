@@ -9,7 +9,6 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
-    address: "",
     message: "",
   });
 
@@ -77,17 +76,6 @@ export default function ContactPage() {
             onChange={handleChange}
             placeholder="Your Phone Number"
             required
-          />
-        </div>
-        <div className="contact-form-group">
-          <label>Address</label>
-          <input
-            className="contact-form-input"
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            placeholder="Your Address"
           />
         </div>
         <div className="contact-form-group">
