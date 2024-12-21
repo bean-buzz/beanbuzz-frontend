@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import ReviewSlider from "./ReviewSlider";
 
 export default function ApprovedReviews() {
@@ -8,8 +7,16 @@ export default function ApprovedReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/reviews");
-        const allReviews = res.data.reviews;
+        const response = await fetch(
+          `${import.meta.env.VITE_DATABASE_URL}/reviews`
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const allReviews = data.reviews;
 
         // Filter approved reviews and get latest 10
         const filteredReviews = allReviews

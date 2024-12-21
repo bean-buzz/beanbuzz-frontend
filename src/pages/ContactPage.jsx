@@ -97,7 +97,7 @@ export default function ContactPage() {
         </div>
         <button
           type="submit"
-          className="submit-btn"
+          className="contact-submit-btn"
           disabled={state.submitting}
         >
           SUBMIT

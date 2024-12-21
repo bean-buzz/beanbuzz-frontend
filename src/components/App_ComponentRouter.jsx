@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//import "../styles/App.css";
 import HomePage from "../pages/HomePage.jsx";
 import OurMenuPage from "../pages/OurMenuPage.jsx";
 import ContactPage from "../pages/ContactPage.jsx";
@@ -12,7 +11,6 @@ import ProtectedRoute from "../components/ProtectedRoute.jsx";
 // Import Layouts
 import ProtectedLayout from "../components/ProtectedLayout.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
-import Footer from "./Footer.jsx";
 
 //Import Dashboard
 import DashboardLayout from "./layouts/DashboardLayout.jsx";
@@ -21,11 +19,9 @@ import Dashboard from "../pages/Dashboard.jsx";
 // Import admin-specific components
 import MenuItems from "../pages/MenuItems.jsx";
 import KitchenOrders from "../pages/KitchenOrders.jsx";
-import Payments from "../pages/Payments.jsx";
 import Reviews from "../pages/Reviews.jsx";
 
 // Import User-specific components
-import MyProfile from "../pages/MyProfile.jsx";
 import UserReview from "../pages/UserReview.jsx";
 
 function App() {

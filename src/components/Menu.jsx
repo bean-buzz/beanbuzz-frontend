@@ -252,9 +252,6 @@ export default function Menu() {
       ) : (
         <EmptyCartMessage></EmptyCartMessage>
       )}
-      <button onClick={() => console.log(cart)}>
-        console log cart test button
-      </button>
     </div>
   );
 }

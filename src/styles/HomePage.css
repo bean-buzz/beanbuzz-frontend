@@ -1,8 +1,3 @@
-body {
-  background-color: #f9f9f9;
-  margin: 0; /* Remove default margin */
-}
-
 /* Home Section */
 .home-section {
   position: relative;
@@ -220,12 +215,12 @@ button.submit-button {
   }
 }
 
-/* Follow-Us Section Styling */
-.follow-us-section {
+/* Quote Section Styling */
+.quote-section {
   text-align: center;
-  background-color: #dccbc6; /* White background */
+  background-color: rgba(0, 0, 0, 0.05);
   padding: 30px;
-  margin: 10px 0; /* Top and bottom margin */
+  margin: 20px; /* Top and bottom margin */
 }
 
 /* Section Heading (h2) */
@@ -245,34 +240,7 @@ button.submit-button {
   line-height: 1;
 }
 
-/* Follow Button Styling */
-.follow-button {
-  display: inline-flex; /* Flexbox for aligning image and text */
-  align-items: center; /* Vertically center image and text */
-  justify-content: center; /* Horizontally center content */
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
-  background-color: #ffffff; /* Blue button */
-  padding: 5px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  gap: 3px; /* Space between text and image */
-}
 
-/* Follow Button Hover Effect */
-.follow-button:hover {
-  background-color: #000000; /* Darker blue on hover */
-  color: #ffffff;
-}
-
-/* Vehicle Icon in Button */
-.follow-icon {
-  width: 25px; /* Adjust width as needed */
-  height: 25px; /* Maintain aspect ratio */
-}
 
 @media (max-width: 768px) {
   .section-heading {
