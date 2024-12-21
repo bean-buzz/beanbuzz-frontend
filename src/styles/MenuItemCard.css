@@ -13,12 +13,25 @@
   min-width: 350px;
   margin: 3rem;
   border-radius: 15px;
-  background-color: beige;
+  background-color: var(--bg-color);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding-bottom: 2rem;
 }
 
 .menu-item-card p {
   margin: 1em;
+}
+
+.menu-cart-btn {
+  margin: 10px;
+  padding: 5px;
+  font-size: 1.2rem;
+
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .dietary-tag-container {

@@ -45,7 +45,6 @@ function App() {
             />
 
             {/* User-specific Routes */}
-            <Route path="/user/profile" element={<MyProfile />} />
             <Route path="/user/review" element={<UserReview />} />
             <Route path="/user/orders" element={<KitchenOrders />} />
           </Route>
