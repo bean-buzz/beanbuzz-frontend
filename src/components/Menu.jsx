@@ -186,7 +186,7 @@ export default function Menu() {
     async function fetchMenuItemData() {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_DATABASE_URL}/menu/coffee`
+          `${import.meta.env.VITE_DATABASE_URL}/menu`
         );
         const data = await response.json();
         if (data) {
