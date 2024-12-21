@@ -14,7 +14,6 @@ import MainLayout from "./layouts/MainLayout.jsx";
 
 //Import Dashboard
 import DashboardLayout from "./layouts/DashboardLayout.jsx";
-import Dashboard from "../pages/Dashboard.jsx";
 
 // Import admin-specific components
 import MenuItems from "../pages/MenuItems.jsx";
@@ -56,7 +55,6 @@ function App() {
           >
             {/* For Admin & Staff */}
             <Route element={<DashboardLayout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/items" element={<MenuItems />} />
               <Route path="/dashboard/orders" element={<KitchenOrders />} />
               <Route path="/dashboard/reviews" element={<Reviews />} />

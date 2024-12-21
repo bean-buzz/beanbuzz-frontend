@@ -13,9 +13,15 @@ export default function CartModal({
   handleCheckout,
   table,
 }) {
+  const handleOverlayClick = (event) => {
+    if (event.target.className === "overlay") {
+      toggleCartModal();
+    }
+  };
+
   return (
     <div className="modal">
-      <div className="overlay"></div>
+      <div className="overlay" onClick={handleOverlayClick}></div>
       <div className="modal-content">
         <h2>Cart</h2>
         <button className="close-modal-button" onClick={toggleCartModal}>

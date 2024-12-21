@@ -96,7 +96,7 @@ export default function Navbar() {
         {/* Conditionally render 'My Account' dropdown if user is authenticated */}
         {isAuthenticated ? (
           userRole === "admin" || userRole === "staff" ? (
-            <NavLink to="/dashboard" className="login-button">
+            <NavLink to="/dashboard/orders" className="login-button">
               Dashboard
             </NavLink>
           ) : (
