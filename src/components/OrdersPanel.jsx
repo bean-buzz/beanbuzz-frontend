@@ -23,6 +23,8 @@ export default function OrdersPanel({ role, email }) {
 
         let url;
 
+        console.log(`Email ${email} and role ${role}`);
+
         // Determine the API endpoint based on the user type
         if (role === "admin" || role === "staff") {
           url = `${import.meta.env.VITE_DATABASE_URL}/order`;
