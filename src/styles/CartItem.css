@@ -1,21 +1,7 @@
 .cart-item {
   display: flex;
   gap: 30px;
-  
 }
-
-/* .cart-item textarea {
-  background-color: white;
-  font-family: arial, sans-serif;
-  font-size: 0.8rem;
-  resize: none;
-  max-width: 200px;
-}
-
-.cart-item select {
-  color: black;
-  background-color: white;
-} */
 
 .cart-item p {
   font-size: 0.8rem;
@@ -63,20 +49,28 @@
 }
 
 .bin-button {
-  padding: 5px;
-  font-size: 14px;
-  background-color: var(--button-bg-color);
-  color: var(--button-text-color);
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  width: 30px;
+
+  background: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.cart-item select,
+.bin-button img {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.cart-item-size,
 .cart-item textarea,
 .table-select {
   flex: 2;
-  padding: 10px;
+  color: var(--input-text-color);
   background-color: var(--input-bg-color);
   border: 1px solid var(--text-color);
   border-radius: 5px;

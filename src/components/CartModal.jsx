@@ -74,7 +74,6 @@ export default function CartModal({
             Checkout
           </button>
         ) : null}
-
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ body.active-modal {
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
-  background: #f1f1f1;
+  background: var(--bg-color);
   padding: 14px 28px;
   border-radius: 5px;
   max-width: 600px;
@@ -71,7 +71,6 @@ body.active-modal {
 }
 
 .table-select {
-  color: black;
   background-color: white;
   margin: 10px;
   align-self: center;
@@ -82,3 +81,4 @@ body.active-modal {
     max-height: 500px;
   }
 }
+

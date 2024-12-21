@@ -40,8 +40,6 @@ export default function ReviewForm() {
       reviewStatus: createReview.reviewStatus,
     };
 
-    console.log("Submitting Review Data:", reviewData);
-
     axios
       .post(`${import.meta.env.VITE_DATABASE_URL}/reviews`, reviewData, {
         headers: {
