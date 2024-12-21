@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import OrderModal from "./OrderModal";
 import "../styles/OrdersPanel.css";
 
-export default function OrdersPanel({ role, name }) {
+export default function OrdersPanel({ role, email }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  //   View selected order
+  // View selected order
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -16,21 +16,21 @@ export default function OrdersPanel({ role, name }) {
     const fetchOrders = async () => {
       try {
         const currentJwt = localStorage.getItem("jwt");
+        if (!currentJwt) {
+          throw new Error("JWT token is missing");
+        }
+
         let url;
 
         // Determine the API endpoint based on the user type
         if (role === "admin" || role === "staff") {
           url = `${import.meta.env.VITE_DATABASE_URL}/order`;
-        } else if (role === "user" && name) {
-          const encodedName = encodeURIComponent(name);
-
+        } else if (role === "user" && email) {
           url = `${
             import.meta.env.VITE_DATABASE_URL
-          }/order/user-history/${encodedName}`;
-
-          console.log("Request URL:", url);
+          }/order/user-history/${email}`;
         } else {
-          throw new Error("Invalid user type or missing name");
+          throw new Error("Invalid role or missing email");
         }
 
         const response = await fetch(url, {
@@ -47,8 +47,6 @@ export default function OrdersPanel({ role, name }) {
 
         const data = await response.json();
         setOrders(data);
-
-        console.log(`Loaded Panel`);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -57,7 +55,7 @@ export default function OrdersPanel({ role, name }) {
     };
 
     fetchOrders();
-  }, [isModalOpen, role, name]);
+  }, [isModalOpen, role, email]);
 
   // Toggle the selected orders modal
   const toggleModal = (order = null) => {
@@ -78,7 +76,8 @@ export default function OrdersPanel({ role, name }) {
             <th>COMPLETED TIME</th>
             <th>STATUS</th>
             <th>TOTAL</th>
-            <th>ACTIONS</th>
+            {/* Hide actions column for users */}
+            {role !== "user" && <th>ACTIONS</th>}{" "}
           </tr>
         </thead>
 
@@ -108,15 +107,18 @@ export default function OrdersPanel({ role, name }) {
 
               {/* Total Price */}
               <td>${order.totalPrice.toFixed(2)}</td>
+
               {/* View Order Button */}
-              <td>
-                <button
-                  onClick={() => toggleModal(order)}
-                  className="view-details-btn"
-                >
-                  View Order
-                </button>
-              </td>
+              {role !== "user" && (
+                <td>
+                  <button
+                    onClick={() => toggleModal(order)}
+                    className="view-details-btn"
+                  >
+                    View Order
+                  </button>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
