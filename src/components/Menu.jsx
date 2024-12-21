@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import MenuItemCard from "./MenuItemCard";
 import MenuFilter from "./MenuFilter";
 
+import Toast from "./Toast";
+
+
+
 import "../styles/Menu.css";
 import CartButton from "./CartButton";
 import CartModal from "./CartModal";
@@ -157,11 +161,17 @@ export default function Menu() {
     console.log(responseData);
     if (response.status == "201") {
       setCart([]);
-      alert("Your order has been made!");
+      toggleCartModal();
+      Toast().fire({
+        icon: "success",
+        title: "Order Created!",
+      })
+      // alert("Your order has been made!");
     } else {
-      alert(
-        "Oh no something went wrong! Your Order was not processed! Please call a member of staff."
-      );
+      Toast().fire({
+        icon: "error",
+        title: "Could not process order. Please call staff!",
+      });
     }
   }
 
@@ -224,7 +234,7 @@ export default function Menu() {
         <h2>What can we get for you?</h2>
       )}
       <div className="cart-button-container">
-        <CartButton toggleCartModal={toggleCartModal}></CartButton>
+        <CartButton cart={cart} toggleCartModal={toggleCartModal}></CartButton>
       </div>
       <MenuFilter handleCategoryFilter={handleCategoryFilter}></MenuFilter>
       {menuItems.length ? (
