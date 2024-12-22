@@ -106,8 +106,7 @@ export default function MenuItemsPanel({ role }) {
           <th>DESCRIPTION</th>
           <th>AVAILABILITY</th>
           <th>IMAGE</th>
-          {/* Only admins can see actions */}
-          {role === "admin" && <th>ACTIONS</th>}{" "}
+          {role === "admin" && <th>ACTIONS</th>}
         </tr>
       </thead>
 

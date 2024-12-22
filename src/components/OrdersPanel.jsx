@@ -77,51 +77,59 @@ export default function OrdersPanel({ role, email }) {
             <th>COMPLETED TIME</th>
             <th>STATUS</th>
             <th>TOTAL</th>
-            {/* Hide actions column for users */}
-            {role !== "user" && <th>ACTIONS</th>}{" "}
+            {role !== "user" && <th>ACTIONS</th>}
           </tr>
         </thead>
 
         <tbody>
-          {orders.map((order) => (
-            <tr key={order._id}>
-              {/* Table No */}
-              <td>{order.tableNumber || "-"}</td>
-              {/* Order Time */}
-              <td>{new Date(order.createdAt).toLocaleString()}</td>
-              {/* Completed Time */}
-              <td>
-                {order.orderStatus === "Completed"
-                  ? new Date(order.updatedAt).toLocaleString()
-                  : "-"}
-              </td>
-              {/* Status */}
-              <td>
-                <span
-                  className={`status-badge ${order.orderStatus
-                    .toLowerCase()
-                    .replace(" ", "-")}`}
-                >
-                  {order.orderStatus.toUpperCase()}
-                </span>
-              </td>
-
-              {/* Total Price */}
-              <td>${order.totalPrice.toFixed(2)}</td>
-
-              {/* View Order Button */}
-              {role !== "user" && (
+          {Array.isArray(orders) && orders.length > 0 ? (
+            orders.map((order) => (
+              <tr key={order._id}>
+                {/* Table No */}
+                <td>{order.tableNumber || "-"}</td>
+                {/* Order Time */}
+                <td>{new Date(order.createdAt).toLocaleString()}</td>
+                {/* Completed Time */}
                 <td>
-                  <button
-                    onClick={() => toggleModal(order)}
-                    className="view-details-btn"
-                  >
-                    View Order
-                  </button>
+                  {order.orderStatus === "Completed"
+                    ? new Date(order.updatedAt).toLocaleString()
+                    : "-"}
                 </td>
-              )}
+                {/* Status */}
+                <td>
+                  <span
+                    className={`status-badge ${order.orderStatus
+                      .toLowerCase()
+                      .replace(" ", "-")}`}
+                  >
+                    {order.orderStatus.toUpperCase()}
+                  </span>
+                </td>
+                {/* Total Price */}
+                <td>${order.totalPrice.toFixed(2)}</td>
+                {/* View Order Button */}
+                {role !== "user" && (
+                  <td>
+                    <button
+                      onClick={() => toggleModal(order)}
+                      className="view-details-btn"
+                    >
+                      View Order
+                    </button>
+                  </td>
+                )}
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td
+                colSpan={role !== "user" ? 6 : 5}
+                style={{ textAlign: "center" }}
+              >
+                No orders available.
+              </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
 
