@@ -194,7 +194,7 @@ button.submit-button {
   }
 
   .homepage-slider-image {
-    height: 500px;
+    height: 100%;
   }
 
   .dot {
@@ -224,7 +224,7 @@ button.submit-button {
 }
 
 /* Section Heading (h2) */
-.section-heading {
+.quote-section .section-heading {
   font-size: 30px;
   font-weight: bold;
   color: #2c2b2b; /* Dark gray text */
@@ -233,22 +233,39 @@ button.submit-button {
 }
 
 /* Section Description (p) */
-.section-description {
+.quote-section .section-description {
   font-size: 20px;
   color: #666666; /* Medium gray text */
   margin-bottom: 25px;
   line-height: 1;
 }
 
-
-
 @media (max-width: 768px) {
-  .section-heading {
-    font-size: 22px;
+  .quote-section {
+    padding: 30px 5px 5px;
+  }
+  .quote-section .section-heading {
+    font-size: 25px;
   }
 
-  .section-description {
+  .quote-section .section-description {
+    font-size: 16px;
+    padding: 20px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-section {
+    padding: 30px 5px 5px;
+  }
+  .quote-section .section-heading {
     font-size: 18px;
+  }
+
+  .quote-section .section-description {
+    font-size: 14px;
+    padding: 10px;
   }
 }
 

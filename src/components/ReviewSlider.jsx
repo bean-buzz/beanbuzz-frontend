@@ -32,7 +32,7 @@ export default function ReviewSlider({ reviews }) {
     speed: 500,
     slidesToShow: 4, // Default for Desktop
     slidesToScroll: 1,
-    autoplay: false, // Disable autoplay
+    autoplay: false,
     prevArrow: <LeftArrow />,
     nextArrow: <RightArrow />,
     responsive: [
@@ -40,12 +40,14 @@ export default function ReviewSlider({ reviews }) {
         breakpoint: 1024, // Tablet view
         settings: {
           slidesToShow: 3,
+          centerPadding: "0px", // Add centerPadding only here
         },
       },
       {
         breakpoint: 768, // Mobile view
         settings: {
           slidesToShow: 1,
+          centerPadding: "0px", // Add centerPadding only here
         },
       },
     ],
